@@ -5,16 +5,54 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CTC"
         mc:Ignorable="d"
-        Title="MainWindow" Height="409" Width="883">
+        Title="MainWindow" Height="459" Width="883">
     <Grid Background="#FF0C1E9A">
-        <Rectangle HorizontalAlignment="Center" Height="353" Stroke="Black" VerticalAlignment="Center" Width="841" Fill="#FF616161" Opacity="0.75"/>
+        
+        <Rectangle Stroke="Black" Fill="#FF616161" Opacity="0.75" Margin="10,10,10,10"/>
+        <Rectangle HorizontalAlignment="Left" Height="37" Margin="40,27,0,0" Stroke="Black" VerticalAlignment="Top" Width="348" Fill="#FF2B2B2B"/>
+        <Label Content="Vehicle Selection" HorizontalAlignment="Left" Margin="150,29,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
+        <Button x:Name="tuneVehiclebtn" Content="Tune Vehicle" HorizontalAlignment="Left" Margin="150,0,0,26" VerticalAlignment="Bottom" Height="37" Width="238" Background="#FF2B2B2B" Foreground="White" Click="tuneVehiclebtn_Click" FontSize="16" BorderBrush="Black" />
+        <Button x:Name="backtoGame" Content="Back to Game" HorizontalAlignment="Left" Margin="40,0,0,26" VerticalAlignment="Bottom" Height="37" Width="110" Background="#FF2B2B2B" Foreground="White"  FontSize="16" BorderBrush="Black" Click="backtoGame_Click" />
+        <Rectangle Stroke="Black" Width="348" Fill="#FF616161" Opacity="0.75" Margin="40,65,0,68" HorizontalAlignment="Left"/>
+        <Rectangle HorizontalAlignment="Left" Height="37" Margin="667,33,0,0" Stroke="Black" VerticalAlignment="Top" Width="174" Fill="#FF2B2B2B" />
+        <Rectangle HorizontalAlignment="Left" Height="138" Stroke="Black" VerticalAlignment="Top" Width="348" Fill="#FF616161" Opacity="0.75" Margin="493,70,0,0"/>
+        <Rectangle HorizontalAlignment="Left" Height="37" Margin="493,33,0,0" Stroke="Black" VerticalAlignment="Top" Width="174" Fill="#FF2B2B2B"/>
+        <Label x:Name="modelLbl" Content="[Model]" HorizontalAlignment="Left" Margin="547,36,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
+        <Label x:Name="brandLbl" Content="[Brand]" HorizontalAlignment="Left" Margin="721,36,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
+        <Rectangle HorizontalAlignment="Left" Height="37" Margin="493,213,0,0" Stroke="Black" VerticalAlignment="Top" Width="348" Fill="#FF2B2B2B"/>
+        <Label Content="Specification" HorizontalAlignment="Left" Margin="603,216,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
+        
+        <Grid Margin="493,257,42,26" RenderTransformOrigin="0.502,0.314">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
 
-        <Rectangle HorizontalAlignment="Left" Height="37" Margin="40,46,0,0" Stroke="Black" VerticalAlignment="Top" Width="348" Fill="#FF2B2B2B"/>
-        <Label Content="Vehicle Selection" HorizontalAlignment="Left" Margin="150,49,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
-        <Rectangle HorizontalAlignment="Left" Height="37" Margin="150,311,0,0" Stroke="Black" VerticalAlignment="Top" Width="238" Fill="#FF2B2B2B"/>
-        <Rectangle HorizontalAlignment="Left" Height="37" Margin="40,311,0,0" Stroke="Black" VerticalAlignment="Top" Width="110" Fill="#FF2B2B2B"/>
-        <Label Content="Tune Vehicle" HorizontalAlignment="Left" Margin="214,314,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
-        <Button x:Name="tuneVehiclebtn" Content="Button" HorizontalAlignment="Left" Margin="388,313,0,0" VerticalAlignment="Top" Height="34" Width="238" Background="#FF2B2B2B" Foreground="White" Click="tuneVehiclebtn_Click" />
-
+            <Label> Acceleration</Label>
+            <Label x:Name="accelerationLbl" Grid.Column="1">0</Label>
+            <Label Grid.Column="2">Horsepower</Label>
+            <Label x:Name="horsepowerLbl" Grid.Column="3">0</Label>
+            <Label Grid.Row="1">Top Speed</Label>
+            <Label x:Name="topspeedLbl" Grid.Column="1" Grid.Row="1">0</Label>
+            <Label Grid.Column="2" Grid.Row="1">Weight</Label>
+            <Label x:Name="weightLbl" Grid.Column="3" Grid.Row="1">0</Label>
+            <Label Grid.Row="2">Brakeforce</Label>
+            <Label x:Name="breakforceLbl" Grid.Column="1" Grid.Row="2">0</Label>
+            <Label Grid.Row="3">Handling Range</Label>
+            <Label x:Name="handlingRangeLbl" Grid.Column="1" Grid.Row="3">0</Label>
+            <Label Grid.Column="2" Grid.Row="2">Rating</Label>
+            <Label x:Name="ratingLbl" Grid.Column="3" Grid.Row="2">0</Label>
+            <Label Grid.Column="2" Grid.Row="3">Value</Label>
+            <Label x:Name="ValueLbl" Grid.Column="3" Grid.Row="3">0</Label>
+        </Grid>
+        
     </Grid>
 </Window>
