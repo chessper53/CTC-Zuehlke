@@ -23,6 +23,7 @@ namespace CTC
         public MainWindow()
         {
             InitializeComponent();
+            
         }
     }
 }
