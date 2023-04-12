@@ -30,5 +30,10 @@ namespace CTC
         {
 
         }
+
+        private void backtoGame_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
