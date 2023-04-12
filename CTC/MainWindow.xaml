@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:CTC"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+	<Grid>
+        <Button>Bttn</Button>
+        <Grid>
+            
+        </Grid>
+	</Grid>
 </Window>
