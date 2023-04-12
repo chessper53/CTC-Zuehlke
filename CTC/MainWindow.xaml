@@ -13,21 +13,20 @@
         <Label Content="Vehicle Selection" HorizontalAlignment="Left" Margin="150,29,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
         <Button x:Name="tuneVehiclebtn" Content="Tune Vehicle" HorizontalAlignment="Left" Margin="150,0,0,26" VerticalAlignment="Bottom" Height="37" Width="238" Background="#FF2B2B2B" Foreground="White" Click="tuneVehiclebtn_Click" FontSize="16" BorderBrush="Black" />
         <Button x:Name="backtoGame" Content="Back to Game" HorizontalAlignment="Left" Margin="40,0,0,26" VerticalAlignment="Bottom" Height="37" Width="110" Background="#FF2B2B2B" Foreground="White"  FontSize="16" BorderBrush="Black" Click="backtoGame_Click" />
-        <Rectangle Stroke="Black" Width="348" Fill="#FF616161" Opacity="0.75" Margin="40,65,0,68" HorizontalAlignment="Left"/>
-        <Rectangle HorizontalAlignment="Left" Height="37" Margin="667,33,0,0" Stroke="Black" VerticalAlignment="Top" Width="174" Fill="#FF2B2B2B" />
-        <Rectangle HorizontalAlignment="Left" Height="138" Stroke="Black" VerticalAlignment="Top" Width="348" Fill="#FF616161" Opacity="0.75" Margin="493,70,0,0"/>
-        <Rectangle HorizontalAlignment="Left" Height="37" Margin="493,33,0,0" Stroke="Black" VerticalAlignment="Top" Width="174" Fill="#FF2B2B2B"/>
-        <Label x:Name="modelLbl" Content="[Model]" HorizontalAlignment="Left" Margin="547,36,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
-        <Label x:Name="brandLbl" Content="[Brand]" HorizontalAlignment="Left" Margin="721,36,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
-        <Rectangle HorizontalAlignment="Left" Height="37" Margin="493,213,0,0" Stroke="Black" VerticalAlignment="Top" Width="348" Fill="#FF2B2B2B"/>
-        <Label Content="Specification" HorizontalAlignment="Left" Margin="603,216,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
+        <Rectangle Stroke="Black" Width="348" Fill="#FF616161" Opacity="0.75" Margin="40,64,0,63" HorizontalAlignment="Left"/>
+        <Rectangle HorizontalAlignment="Right" Height="37" Margin="0,33,42,0" Stroke="Black" VerticalAlignment="Top" Width="174" Fill="#FF2B2B2B" />
+        <Rectangle HorizontalAlignment="Right" Height="129" Stroke="Black" VerticalAlignment="Top" Width="348" Fill="#FF616161" Opacity="0.75" Margin="0,70,42,0"/>
+        <Rectangle HorizontalAlignment="Right" Height="37" Margin="0,33,216,0" Stroke="Black" VerticalAlignment="Top" Width="174" Fill="#FF2B2B2B"/>
+        <Label x:Name="modelLbl" Content="[Model]" HorizontalAlignment="Right" Margin="0,36,270,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
+        <Label x:Name="brandLbl" Content="[Brand]" HorizontalAlignment="Right" Margin="0,36,98,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
+        <Rectangle Height="37" Margin="0,0,42,184" Stroke="Black" VerticalAlignment="Bottom" Width="348" Fill="#FF2B2B2B" HorizontalAlignment="Right"/>
 
-        <Grid x:Name="specificationGrid" Margin="493,257,42,26" RenderTransformOrigin="0.502,0.314" Background="#FF2B2B2B">
+        <Grid x:Name="specificationGrid" Margin="0,0,42,24" RenderTransformOrigin="0.502,0.314" Background="#FF2B2B2B" HorizontalAlignment="Right" Height="160" Width="348" VerticalAlignment="Bottom">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="32*" />
+                <ColumnDefinition Width="26*" />
+                <ColumnDefinition Width="29*" />
+                <ColumnDefinition Width="29*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*" />
@@ -68,7 +67,7 @@
             <Rectangle Grid.Column="2" Grid.Row="2"  Stroke="Black" Fill="Transparent"/>
             <Rectangle Grid.Column="3" Grid.Row="2"  Stroke="Black" Fill="Transparent"/>
 
-            <Rectangle Grid.Column="0" Grid.Row="3"  Stroke="Black" Fill="Transparent"/>
+            <Rectangle Grid.Column="0" Grid.Row="3"  Stroke="Black" Fill="Transparent" Grid.ColumnSpan="2" Margin="0,0,77,0"/>
             <Rectangle Grid.Column="1" Grid.Row="3"  Stroke="Black" Fill="Transparent"/>
             <Rectangle Grid.Column="2" Grid.Row="3"  Stroke="Black" Fill="Transparent"/>
             <Rectangle Grid.Column="3" Grid.Row="3"  Stroke="Black" Fill="Transparent"/>
