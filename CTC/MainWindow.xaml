@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="459" Width="883">
     <Grid Background="#FF0C1E9A">
-        
+
         <Rectangle Stroke="Black" Fill="#FF616161" Opacity="0.75" Margin="10,10,10,10"/>
         <Rectangle HorizontalAlignment="Left" Height="37" Margin="40,27,0,0" Stroke="Black" VerticalAlignment="Top" Width="348" Fill="#FF2B2B2B"/>
         <Label Content="Vehicle Selection" HorizontalAlignment="Left" Margin="150,29,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
@@ -21,8 +21,8 @@
         <Label x:Name="brandLbl" Content="[Brand]" HorizontalAlignment="Left" Margin="721,36,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
         <Rectangle HorizontalAlignment="Left" Height="37" Margin="493,213,0,0" Stroke="Black" VerticalAlignment="Top" Width="348" Fill="#FF2B2B2B"/>
         <Label Content="Specification" HorizontalAlignment="Left" Margin="603,216,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
-        
-        <Grid Margin="493,257,42,26" RenderTransformOrigin="0.502,0.314">
+
+        <Grid x:Name="specificationGrid" Margin="493,257,42,26" RenderTransformOrigin="0.502,0.314" Background="#FF2B2B2B">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="1*" />
@@ -36,23 +36,43 @@
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
 
-            <Label> Acceleration</Label>
-            <Label x:Name="accelerationLbl" Grid.Column="1">0</Label>
-            <Label Grid.Column="2">Horsepower</Label>
-            <Label x:Name="horsepowerLbl" Grid.Column="3">0</Label>
-            <Label Grid.Row="1">Top Speed</Label>
-            <Label x:Name="topspeedLbl" Grid.Column="1" Grid.Row="1">0</Label>
-            <Label Grid.Column="2" Grid.Row="1">Weight</Label>
-            <Label x:Name="weightLbl" Grid.Column="3" Grid.Row="1">0</Label>
-            <Label Grid.Row="2">Brakeforce</Label>
-            <Label x:Name="breakforceLbl" Grid.Column="1" Grid.Row="2">0</Label>
-            <Label Grid.Row="3">Handling Range</Label>
-            <Label x:Name="handlingRangeLbl" Grid.Column="1" Grid.Row="3">0</Label>
-            <Label Grid.Column="2" Grid.Row="2">Rating</Label>
-            <Label x:Name="ratingLbl" Grid.Column="3" Grid.Row="2">0</Label>
-            <Label Grid.Column="2" Grid.Row="3">Value</Label>
-            <Label x:Name="ValueLbl" Grid.Column="3" Grid.Row="3">0</Label>
+            <Label Foreground="White">Acceleration</Label>
+            <Label x:Name="accelerationLbl" Grid.Column="1" Foreground="White">0</Label>
+            <Label Grid.Column="2" Foreground="White">Horsepower</Label>
+            <Label x:Name="horsepowerLbl" Grid.Column="3" Foreground="White" BorderBrush="Black">0</Label>
+            <Label Grid.Row="1" Foreground="White">Top Speed</Label>
+            <Label x:Name="topspeedLbl" Grid.Column="1" Grid.Row="1" Foreground="White">0</Label>
+            <Label Grid.Column="2" Grid.Row="1" Foreground="White">Weight</Label>
+            <Label x:Name="weightLbl" Grid.Column="3" Grid.Row="1" Foreground="White" BorderBrush="White">0</Label>
+            <Label Grid.Row="2" Foreground="White">Brakeforce</Label>
+            <Label x:Name="breakforceLbl" Grid.Column="1" Grid.Row="2" Foreground="White">0</Label>
+            <Label Grid.Row="3" Foreground="White">Handling Range</Label>
+            <Label x:Name="handlingRangeLbl" Grid.Column="1" Grid.Row="3" Foreground="White">0</Label>
+            <Label Grid.Column="2" Grid.Row="2" Foreground="White">Rating</Label>
+            <Label x:Name="ratingLbl" Grid.Column="3" Grid.Row="2" Foreground="White">0</Label>
+            <Label Grid.Column="2" Grid.Row="3" Foreground="White">Value</Label>
+            <Label x:Name="ValueLbl" Grid.Column="3" Grid.Row="3" Foreground="White">0</Label>
+
+            <Rectangle Grid.Column="0" Grid.Row="0"  Stroke="Black" Fill="Transparent"/>
+            <Rectangle Grid.Column="1" Grid.Row="0"  Stroke="Black" Fill="Transparent"/>
+            <Rectangle Grid.Column="2" Grid.Row="0"  Stroke="Black" Fill="Transparent"/>
+            <Rectangle Grid.Column="3" Grid.Row="0"  Stroke="Black" Fill="Transparent"/>
+
+            <Rectangle Grid.Column="0" Grid.Row="1"  Stroke="Black" Fill="Transparent"/>
+            <Rectangle Grid.Column="1" Grid.Row="1"  Stroke="Black" Fill="Transparent"/>
+            <Rectangle Grid.Column="2" Grid.Row="1"  Stroke="Black" Fill="Transparent"/>
+            <Rectangle Grid.Column="3" Grid.Row="1"  Stroke="Black" Fill="Transparent"/>
+
+            <Rectangle Grid.Column="0" Grid.Row="2"  Stroke="Black" Fill="Transparent"/>
+            <Rectangle Grid.Column="1" Grid.Row="2"  Stroke="Black" Fill="Transparent"/>
+            <Rectangle Grid.Column="2" Grid.Row="2"  Stroke="Black" Fill="Transparent"/>
+            <Rectangle Grid.Column="3" Grid.Row="2"  Stroke="Black" Fill="Transparent"/>
+
+            <Rectangle Grid.Column="0" Grid.Row="3"  Stroke="Black" Fill="Transparent"/>
+            <Rectangle Grid.Column="1" Grid.Row="3"  Stroke="Black" Fill="Transparent"/>
+            <Rectangle Grid.Column="2" Grid.Row="3"  Stroke="Black" Fill="Transparent"/>
+            <Rectangle Grid.Column="3" Grid.Row="3"  Stroke="Black" Fill="Transparent"/>
         </Grid>
-        
+
     </Grid>
 </Window>
