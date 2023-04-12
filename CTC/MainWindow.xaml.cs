@@ -23,7 +23,7 @@ namespace CTC
         public MainWindow()
         {
             InitializeComponent();
-            ////HDJadbaudiu
+            
         }
     }
 }
