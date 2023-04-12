@@ -6,7 +6,15 @@
         xmlns:local="clr-namespace:CTC"
         mc:Ignorable="d"
         Title="MainWindow" Height="409" Width="883">
-    <Grid>
+    <Grid Background="#FF0C1E9A">
+        <Rectangle HorizontalAlignment="Center" Height="353" Stroke="Black" VerticalAlignment="Center" Width="841" Fill="#FF616161" Opacity="0.75"/>
+
+        <Rectangle HorizontalAlignment="Left" Height="37" Margin="40,46,0,0" Stroke="Black" VerticalAlignment="Top" Width="348" Fill="#FF2B2B2B"/>
+        <Label Content="Vehicle Selection" HorizontalAlignment="Left" Margin="150,49,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
+        <Rectangle HorizontalAlignment="Left" Height="37" Margin="150,311,0,0" Stroke="Black" VerticalAlignment="Top" Width="238" Fill="#FF2B2B2B"/>
+        <Rectangle HorizontalAlignment="Left" Height="37" Margin="40,311,0,0" Stroke="Black" VerticalAlignment="Top" Width="110" Fill="#FF2B2B2B"/>
+        <Label Content="Tune Vehicle" HorizontalAlignment="Left" Margin="214,314,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
+        <Button x:Name="tuneVehiclebtn" Content="Button" HorizontalAlignment="Left" Margin="388,313,0,0" VerticalAlignment="Top" Height="34" Width="238" Background="#FF2B2B2B" Foreground="White" Click="tuneVehiclebtn_Click" />
 
     </Grid>
 </Window>
