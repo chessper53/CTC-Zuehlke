@@ -11,7 +11,7 @@ namespace CTC
         public List<Car> ReadCars()
         {
             //Placeholder
-            return null;
+            return Model.Cars;
         }
     }
 }
