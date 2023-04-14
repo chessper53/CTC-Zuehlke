@@ -24,7 +24,14 @@ namespace CTC
         public MainWindow()
         {
             InitializeComponent();
-            
+            placeImage("/Images/placeholder_image.jpg");
+
+
+        }
+
+        private void placeImage(String imagelink)
+        {
+            imageHolder.Source = new BitmapImage(new Uri(imagelink, UriKind.Relative));
         }
 
         private void tuneVehiclebtn_Click(object sender, RoutedEventArgs e)
