@@ -8,7 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+
+    <None Remove="car_blueprint.png" />
+    <None Remove="tyrestack.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="car_blueprint.png" />
+    <Resource Include="tyrestack.png" />
+
     <PackageReference Include="MySql.Data" Version="8.0.32.1" />
+
   </ItemGroup>
 
 </Project>
