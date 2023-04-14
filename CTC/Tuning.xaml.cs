@@ -19,7 +19,7 @@ namespace CTC
     /// </summary>
     public partial class Tuning : Window
     {
-        public Tuning()
+        internal Tuning(TuningController tuningController, Car car)
         {
             InitializeComponent();
 

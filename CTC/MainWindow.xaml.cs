@@ -21,12 +21,15 @@ namespace CTC
     /// </summary>
     public partial class MainWindow : Window
     {
+        CarController carController;
+        TuningController tuningController;
+
         public MainWindow()
         {
             InitializeComponent();
             placeImage("/Images/placeholder_image.jpg");
 
-
+            carController = new CarController();
         }
 
         private void placeImage(String imagelink)
@@ -36,7 +39,7 @@ namespace CTC
 
         private void tuneVehiclebtn_Click(object sender, RoutedEventArgs e)
         {
-            Tuning tuningWindow = new Tuning();
+            Tuning tuningWindow = new Tuning(tuningController, new Car());
             tuningWindow.ShowDialog();
         }
 
