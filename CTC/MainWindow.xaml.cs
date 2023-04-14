@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -28,12 +29,13 @@ namespace CTC
 
         private void tuneVehiclebtn_Click(object sender, RoutedEventArgs e)
         {
-
+            Tuning tuningWindow = new Tuning();
+            tuningWindow.ShowDialog();
         }
 
         private void backtoGame_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
     }
 }
