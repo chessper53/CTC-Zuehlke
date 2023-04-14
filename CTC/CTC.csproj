@@ -18,7 +18,25 @@
 
 
     <None Remove="car_blueprint.png" />
+
+    <None Remove="Images\car_blueprint.png" />
+
+    <None Remove="Images\placeholder_image.jpg" />
+
+    <None Remove="Images\tyrestack.png" />
     <None Remove="tyrestack.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\car_blueprint.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\placeholder_image.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\tyrestack.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

@@ -26,9 +26,9 @@
     </Window.Resources>
 
     <Grid Background="#FF0C1E9A">
-        
 
-        <Rectangle x:Name="imageRec" Width="426" Margin="398,33,270,26">
+
+        <Rectangle Width="426" Margin="398,33,270,26">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/tyrestack.png" Stretch="Uniform"/>
             </Rectangle.Fill>
@@ -40,7 +40,6 @@
         <Button x:Name="backtoGame" Content="Back to Game" HorizontalAlignment="Left" Margin="40,0,0,26" VerticalAlignment="Bottom" Height="37" Width="140" Background="#FF2B2B2B" Foreground="White"  FontSize="16" BorderBrush="Black" Click="backtoGame_Click" />
         <Rectangle Stroke="Black" Width="445" Fill="#FF2B2B2B" Margin="40,64,0,63" HorizontalAlignment="Left"/>
         <Rectangle HorizontalAlignment="Right" Height="37" Margin="0,33,42,0" Stroke="Black" VerticalAlignment="Top" Width="174" Fill="#FF2B2B2B" />
-        <Rectangle HorizontalAlignment="Right" Height="129" Stroke="White" VerticalAlignment="Top" Width="348" Fill="#FF2B2B2B" Margin="0,70,42,0"/>
         <Rectangle HorizontalAlignment="Right" Height="37" Margin="0,33,216,0" Stroke="Black" VerticalAlignment="Top" Width="174" Fill="#FF2B2B2B"/>
         <Label x:Name="modelLbl" Content="[Model]" HorizontalAlignment="Right" Margin="0,36,270,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
         <Label x:Name="brandLbl" Content="[Brand]" HorizontalAlignment="Right" Margin="0,36,98,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
@@ -105,6 +104,8 @@
             <Rectangle Grid.Column="2" Grid.Row="3"  Stroke="Black" Fill="Transparent"/>
             <Rectangle Grid.Column="3" Grid.Row="3"  Stroke="Black" Fill="Transparent"/>
         </Grid>
+        <Rectangle HorizontalAlignment="Right" Height="129" Stroke="White" VerticalAlignment="Top" Width="348" Margin="0,70,42,0" Fill="Black"/>
+        <Image x:Name="imageHolder" Height="127" Margin="705,71,43,245" Width="346" Stretch="Fill" VerticalAlignment="Bottom" HorizontalAlignment="Left" Panel.ZIndex="1"/>
 
     </Grid>
 </Window>

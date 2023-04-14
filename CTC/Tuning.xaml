@@ -103,7 +103,7 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle HorizontalAlignment="Left" Height="51" Margin="10,10,0,0" VerticalAlignment="Top" Width="460" Fill="#FF2B2B2B"/>
-        <Label Content="Tuning" HorizontalAlignment="Left" Margin="198,15,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Width="84" Height="42"/>
+        <Label Content="Tuning" HorizontalAlignment="Left" Margin="186,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Width="84" Height="42"/>
 
         <ListView x:Name="tuningpartLV" Margin="10,61,0,232" Background="{x:Null}" BorderBrush="#FFFFE7E7" Foreground="{x:Null}" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="tuningpartLV_SelectionChanged" HorizontalAlignment="Left" Width="460" >
             <ListView.View>
