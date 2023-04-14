@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Abstractions;
+using MySqlX.XDevAPI.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,35 +13,41 @@ namespace CTC
     {
         public List<Bumper> ReadBumpers()
         {
-            return null;
+            return Model.Bumpers;
         }
         public List<Exhaust> ReadExhaust()
         {
-            return null;
+            return Model.Exhausts;
         }
         public List<Nitro> ReadNitro()
         {
-            return null;
+            return Model.Nitros;
         }
         public List<Tyre> ReadTyre()
         {
-            return null;
+            return Model.Tyres;
         }
         public List<RearSpoiler> ReadRearSpoiler()
         {
-            return null;
+            return Model.RearSpoilers;
         }
         public List<Rim> ReadRim()
         {
-            return null;
+            return Model.Rims;
         }
         public List<Engine> ReadEngine()
         {
-            return null;
+            return Model.Engines;
         }
         public List<Break> ReadBreak()
         {
-            return null;
+            return Model.Breaks;
+        }
+        public void UpdateCar(Car car)
+        {
+            Car result = Model.Db.Car.Where(c => c.CarId == car.CarId).First();
+            Model.Db.Entry(result).CurrentValues.SetValues(car);
+            Model.Db.SaveChanges();
         }
     }
 }
