@@ -7,4 +7,14 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="car_blueprint.png" />
+    <None Remove="tyrestack.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="car_blueprint.png" />
+    <Resource Include="tyrestack.png" />
+  </ItemGroup>
+
 </Project>
