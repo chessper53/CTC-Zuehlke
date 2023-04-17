@@ -108,8 +108,8 @@
         <ListView x:Name="tuningpartLV" Margin="10,61,0,232" Background="{x:Null}" BorderBrush="#FFFFE7E7" Foreground="{x:Null}" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="tuningpartLV_SelectionChanged" HorizontalAlignment="Left" Width="460" >
             <ListView.View>
                 <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle}">
-                    <GridViewColumn x:Name="selectedPartHdr" Header="Tuning Part" Width="370" DisplayMemberBinding="{Binding partname}"/>
-                    <GridViewColumn x:Name="selectedPartPrice" Header="Price" DisplayMemberBinding="{Binding pricevalue}"/>
+                    <GridViewColumn x:Name="selectedPartHdr" Header="Tuning Part" Width="370" />
+                    <GridViewColumn x:Name="selectedPartPrice" Header="Price"/>
                 </GridView>
             </ListView.View>
         </ListView>
