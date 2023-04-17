@@ -28,6 +28,7 @@ namespace CTC
         {
             InitializeComponent();
             placeImage("/Images/placeholder_image.jpg");
+            colorLabels();
 
             carController = new CarController();
             tuningController = new TuningController();
@@ -62,6 +63,7 @@ namespace CTC
 
         private void vehicleselectLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
             Car car = vehicleselectLV.SelectedItem as Car;
 
             accelerationLbl.Content = car.GetCalcAcceleration();
@@ -74,6 +76,16 @@ namespace CTC
             ValueLbl.Content = car.GetCalcValue();
 
             placeImage("/Images/" + car.Image);
+
+            colorLabels();
+
+
+        }
+        private void colorLabels()
+        {
+            extcolorLbl.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString(extcolorLbl.Content.ToString()));
+
+            intcolorLbl.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString(intcolorLbl.Content.ToString()));
         }
     }
 }
