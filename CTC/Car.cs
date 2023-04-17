@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,21 +25,155 @@ namespace CTC
         public int Weight { get; set; }
         public int Rating { get; set; }
         public double Value { get; set; }
-        public int BumperId { get; set; }
-        public Bumper Bumper { get; set; }
-        public int ExhaustId { get; set; }
-        public Exhaust Exhaust { get; set; }
-        public int NitroId { get; set; }
-        public Nitro Nitro { get; set; }
+        public int? BumperId { get; set; }
+        public Bumper? Bumper { get; set; }
+        public int? ExhaustId { get; set; }
+        public Exhaust? Exhaust { get; set; }
+        public int? NitroId { get; set; }
+        public Nitro? Nitro { get; set; }
         public int TyreId { get; set; }
         public Tyre Tyre { get; set; }
-        public int RearSpoilerId { get; set; }
-        public RearSpoiler RearSpoiler { get; set;}
+        public int? RearSpoilerId { get; set; }
+        public RearSpoiler? RearSpoiler { get; set;}
         public int RimId { get; set; }
         public Rim Rim { get; set; }
         public int EngineId { get; set; }
         public Engine Engine { get; set; }
         public int BreakId { get; set; }
         public Break Break { get; set; }
+
+
+        public int GetCalcPowerInH()
+        {
+            int calcPowerInHp = PowerInHp;
+
+            calcPowerInHp += Engine.ImpactPowerInHp;
+            if (Exhaust != null)
+            {
+                calcPowerInHp += Exhaust.ImpactPowerInHp;
+            }
+
+            return calcPowerInHp;
+        }
+        public int GetCalcAcceleration()
+        {
+            int calcAcceleraton = Acceleration;
+
+            if(Exhaust != null)
+            {
+                calcAcceleraton += Exhaust.ImpactAcceleration;
+            }
+            calcAcceleraton += Engine.ImpactAcceleration;
+
+            return calcAcceleraton;
+        }
+        public int GetCalcTopSpeedInKmh()
+        {
+            int calcTopSpeedInKmh = TopSpeedInKmh;
+
+            calcTopSpeedInKmh += Engine.ImpactTopSpeed;
+
+            return calcTopSpeedInKmh;
+        }
+        public int GetCalcHandlingRange()
+        {
+            int calcHandlingRange = HandlingRange;
+
+            if (RearSpoiler != null)
+            {
+                calcHandlingRange += RearSpoiler.ImpactHandling;
+            }
+            calcHandlingRange += Tyre.ImpactHandling;
+
+            return calcHandlingRange;
+        }
+        public int GetCalcBreakingForce()
+        {
+            int calcBreakingForce = BreakingForce;
+
+            calcBreakingForce += Tyre.ImpactBreakingForce;
+            calcBreakingForce += Break.ImpactBreakingForce;
+
+            return calcBreakingForce;
+        }
+        public int GetCalcWeight()
+        {
+            int calcWeight = Weight;
+
+            if (Bumper != null)
+            {
+                calcWeight += Bumper.Weight;
+            }
+            if(RearSpoiler!=null)
+            {
+                calcWeight += RearSpoiler.Weight;
+            }
+            calcWeight += Rim.Weight;
+            calcWeight += Tyre.Weight;
+            calcWeight += Break.Weight;
+            calcWeight += Engine.Weight;
+
+            return calcWeight;
+        }
+        public int GetCalcRating()
+        {
+            int calcRating = Rating;
+
+            if(Exhaust != null)
+            {
+                calcRating += Exhaust.ImpactRating;
+            }
+            if (Bumper != null)
+            {
+                calcRating += Bumper.ImpactRating;
+            }
+            if(RearSpoiler != null)
+            {
+                calcRating += RearSpoiler.ImpactRating;
+            }
+            calcRating += Rim.ImpactRating;
+            calcRating += Tyre.ImpactRating;
+            calcRating += Break.ImpactRating;
+            if(Nitro != null)
+            {
+                calcRating += Nitro.ImpactRating;
+            }
+            calcRating += Engine.ImpactRating;
+
+            return calcRating;
+        }
+        public double GetCalcValue()
+        {
+            double calcValue = Value;
+
+            if (Exhaust != null)
+            {
+                calcValue += Exhaust.ImpactRating;
+            }
+            if (Bumper != null)
+            {
+                calcValue += Bumper.ImpactRating;
+            }
+            if (RearSpoiler != null)
+            {
+                calcValue += RearSpoiler.ImpactRating;
+            }
+            calcValue += Rim.ImpactRating;
+            calcValue += Tyre.ImpactRating;
+            calcValue += Break.ImpactRating;
+            if (Nitro != null)
+            {
+                calcValue += Nitro.ImpactRating;
+            }
+            calcValue += Engine.ImpactRating;
+
+            calcValue = Math.Round(calcValue, 2);
+
+            return calcValue;
+        }
+        public override string ToString()
+        {
+            return $"{Brand.Name} {Model}";
+        }
     }
 }

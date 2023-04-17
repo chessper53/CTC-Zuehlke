@@ -19,6 +19,15 @@
 
     <None Remove="car_blueprint.png" />
 
+
+    <None Remove="Images\car1.jpg" />
+
+
+    <None Remove="Images\car2.jpg" />
+
+
+    <None Remove="Images\car3.jpg" />
+
     <None Remove="Images\car_blueprint.png" />
 
     <None Remove="Images\placeholder_image.jpg" />
@@ -28,6 +37,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Images\car1.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\car2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\car3.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\car_blueprint.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
