@@ -72,6 +72,8 @@ namespace CTC
             weightLbl.Content = car.GetCalcWeight();
             ratingLbl.Content = car.GetCalcRating();
             ValueLbl.Content = car.GetCalcValue();
+            brandLbl.Content = car.Brand;
+            modelLbl.Content = car.Model;
 
             placeImage("/Images/" + car.Image);
         }

@@ -20,12 +20,14 @@ namespace CTC
     public partial class Tuning : Window
     {
         private TuningController tuningcontroller;
-
+        Car car;
 
         internal Tuning(TuningController tuningController, Car car)
         {
             InitializeComponent();
-            this.tuningcontroller = tuningController;
+            clearStats();
+            tuningcontroller = tuningController;
+            this.car = car;
         }
 
         private void purchaseBtn_Click(object sender, RoutedEventArgs e)
@@ -35,7 +37,70 @@ namespace CTC
 
         private void tuningpartLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if(tuningpartLV.SelectedItem != null)
+            {
+                Car modifiedCar = (Car)car.Clone();
 
+                switch (tuningpartLV.SelectedItem.GetType().Name)
+                {
+                    case "Break":
+                        modifiedCar.Break = (Break)tuningpartLV.SelectedItem;
+                        break;
+                    case "Bumper":
+                        modifiedCar.Bumper = (Bumper)tuningpartLV.SelectedItem;
+                        break;
+                    case "Engine":
+                        modifiedCar.Engine = (Engine)tuningpartLV.SelectedItem;
+                        break;
+                    case "Exhaust":
+                        modifiedCar.Exhaust = (Exhaust)tuningpartLV.SelectedItem;
+                        break;
+                    case "Nitro":
+                        modifiedCar.Nitro = (Nitro)tuningpartLV.SelectedItem;
+                        break;
+                    case "RearSpoiler":
+                        modifiedCar.RearSpoiler = (RearSpoiler)tuningpartLV.SelectedItem;
+                        break;
+                    case "Rim":
+                        modifiedCar.Rim = (Rim)tuningpartLV.SelectedItem;
+                        break;
+                    case "Tyre":
+                        modifiedCar.Tyre = (Tyre)tuningpartLV.SelectedItem;
+                        break;
+                    default:
+                        break;
+                }
+
+                oldAcceleratonLbl.Content = car.GetCalcAcceleration();
+                oldTopSpeedLbl.Content = car.GetCalcTopSpeedInKmh();
+                oldBrakeForceLbl.Content = car.GetCalcBreakingForce();
+                oldHandlingRangeLbl.Content = car.GetCalcHandlingRange();
+                oldHorsePowerLbl.Content = car.GetCalcPowerInH();
+                oldWeightLbl.Content = car.GetCalcWeight();
+                oldRatingLbl.Content = car.GetCalcRating();
+
+                newAcceleratonLbl.Content = modifiedCar.GetCalcAcceleration() - car.GetCalcAcceleration();
+                newTopSpeedLbl.Content = modifiedCar.GetCalcTopSpeedInKmh() - car.GetCalcTopSpeedInKmh();
+                newBrakeForceLbl.Content = modifiedCar.GetCalcBreakingForce() - car.GetCalcBreakingForce();
+                newHandlingRangeLbl.Content = modifiedCar.GetCalcHandlingRange() - car.GetCalcHandlingRange();
+                newHorsePowerLbl.Content = modifiedCar.GetCalcPowerInH() - car.GetCalcPowerInH();
+                newWeightLbl.Content = modifiedCar.GetCalcWeight() - car.GetCalcWeight();
+                newRatingLbl.Content = modifiedCar.GetCalcRating() - car.GetCalcRating();
+
+                acceleratonLbl.Content = modifiedCar.GetCalcAcceleration();
+                topSpeedLbl.Content = modifiedCar.GetCalcTopSpeedInKmh();
+                brakeForceLbl.Content = modifiedCar.GetCalcBreakingForce();
+                handlingRangeLbl.Content = modifiedCar.GetCalcHandlingRange();
+                horsePowerLbl.Content = modifiedCar.GetCalcPowerInH();
+                weightLbl.Content = modifiedCar.GetCalcWeight();
+                ratingLbl.Content = modifiedCar.GetCalcRating();
+
+                labelColouring();
+            }
+            else
+            {
+                clearStats();
+            }
         }
 
         private void engineBtn_Click(object sender, RoutedEventArgs e)
@@ -158,6 +223,32 @@ namespace CTC
         private void backBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+        public void clearStats()
+        {
+            oldAcceleratonLbl.Content = null;
+            oldTopSpeedLbl.Content = null;
+            oldBrakeForceLbl.Content = null;
+            oldHandlingRangeLbl.Content = null;
+            oldHorsePowerLbl.Content = null;
+            oldWeightLbl.Content = null;
+            oldRatingLbl.Content = null;
+
+            newAcceleratonLbl.Content = null;
+            newTopSpeedLbl.Content = null;
+            newBrakeForceLbl.Content = null;
+            newHandlingRangeLbl.Content = null;
+            newHorsePowerLbl.Content = null;
+            newWeightLbl.Content = null;
+            newRatingLbl.Content = null;
+
+            acceleratonLbl.Content = null;
+            topSpeedLbl.Content = null;
+            brakeForceLbl.Content = null;
+            handlingRangeLbl.Content = null;
+            horsePowerLbl.Content = null;
+            weightLbl.Content = null;
+            ratingLbl.Content = null;
         }
     }
 }
