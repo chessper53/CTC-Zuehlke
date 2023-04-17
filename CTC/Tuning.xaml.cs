@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Mysqlx;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static Mysqlx.Datatypes.Scalar.Types;
 
 namespace CTC
 {
@@ -26,11 +29,11 @@ namespace CTC
         {
             InitializeComponent();
             this.tuningcontroller = tuningController;
+            labelColouring();
         }
 
         private void purchaseBtn_Click(object sender, RoutedEventArgs e)
         {
-            
         }
 
         private void tuningpartLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -121,7 +124,7 @@ namespace CTC
 
         private void labelColouring()
         {
-            // Checks each Element in the sencond column and colours it based on it's size
+            // Checks each Element in the sencond column and colours it based on it's Value
             foreach (UIElement element in specificationGridTune.Children)
             {
                 int columnIndex = System.Windows.Controls.Grid.GetColumn(element);
@@ -158,6 +161,55 @@ namespace CTC
         private void backBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void interiorBtn_Click(object sender, RoutedEventArgs e)
+        {
+            string colourHexInterior = "";
+            while (string.IsNullOrEmpty(colourHexInterior))
+            {
+                colourHexInterior = Microsoft.VisualBasic.Interaction.InputBox("Please enter the desired colour (HEX):", "Colour", "");
+
+                if (colourHexInterior.StartsWith("#"))
+                {
+                }
+                else
+                {
+                    colourHexInterior = "#" + colourHexInterior;
+                }
+
+                Regex hexColorRegex = new Regex(@"^#?([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$");
+                bool isValidHexColor = hexColorRegex.IsMatch(colourHexInterior);
+                if (isValidHexColor)
+                {
+                    interiorBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(colourHexInterior));
+                } 
+
+            }
+        }
+
+        private void exteriorBtn_Click(object sender, RoutedEventArgs e)
+        {
+            string colourHexExterior = "";
+            while (string.IsNullOrEmpty(colourHexExterior))
+            {
+                colourHexExterior = Microsoft.VisualBasic.Interaction.InputBox("Please enter the desired colour (HEX):", "Colour", "");
+
+                if (colourHexExterior.StartsWith("#"))
+                {
+                }
+                else
+                {
+                    colourHexExterior = "#" + colourHexExterior;
+                }
+
+                Regex hexColorRegex = new Regex(@"^#?([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$");
+                bool isValidHexColor = hexColorRegex.IsMatch(colourHexExterior);
+                if (isValidHexColor)
+                {
+                    exteriorBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(colourHexExterior));
+                }
+            }
         }
     }
 }

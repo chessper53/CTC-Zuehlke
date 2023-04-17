@@ -19,7 +19,7 @@ namespace CTC
 
         public string DbPath { get; set; }
 
-        public string ConnectionString { get; set; } = "Data Source=localhost\\MSSQLSERVER01;Initial Catalog=ctc;User id=ctcUser;Password=ctcUser;Trusted_Connection=True;Encrypt=False";
+        public string ConnectionString { get; set; } = "Data Source=192.168.55.44\\MSSQLSERVER01;Initial Catalog=ctc;User id=caspar;Password=caspar20052.0;Trusted_Connection=False;Encrypt=False";
 
         public Config()
         {
