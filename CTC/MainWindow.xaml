@@ -65,8 +65,10 @@
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
-
+            
+            
             <Label Foreground="White" Content="Acceleration"/>
             <Label x:Name="accelerationLbl" Grid.Column="1" Foreground="White" Content="0"/>
             <Label Grid.Column="2" Foreground="White" Content="Horsepower"/>
@@ -83,6 +85,12 @@
             <Label x:Name="ratingLbl" Grid.Column="3" Grid.Row="2" Foreground="White" Content="0"/>
             <Label Grid.Column="2" Grid.Row="3" Foreground="White" Content="Value"/>
             <Label x:Name="ValueLbl" Grid.Column="3" Grid.Row="3" Foreground="White" Content="0"/>
+
+            <Label Grid.Column="0" Grid.Row="4" Foreground="White" Content="External"/>
+            <Label x:Name="extcolorLbl" Grid.Column="1" Grid.Row="5" Foreground="White" Content="#d9ffcb"/>
+
+            <Label Grid.Column="2" Grid.Row="4" Foreground="White" Content="Trim"/>
+            <Label x:Name="intcolorLbl" Grid.Column="5" Grid.Row="5" Foreground="White" Content="#d9ffcb"/>
 
             <Rectangle Grid.Column="0" Grid.Row="0"  Stroke="Black" Fill="Transparent"/>
             <Rectangle Grid.Column="1" Grid.Row="0"  Stroke="Black" Fill="Transparent"/>
