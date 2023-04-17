@@ -30,6 +30,10 @@ namespace CTC
             placeImage("/Images/placeholder_image.jpg");
 
             carController = new CarController();
+            tuningController = new TuningController();
+
+            //set cars as source for view
+            vehicleselectLV.ItemsSource = carController.ReadCars();
         }
 
         private void placeImage(String imagelink)
@@ -39,13 +43,37 @@ namespace CTC
 
         private void tuneVehiclebtn_Click(object sender, RoutedEventArgs e)
         {
-            Tuning tuningWindow = new Tuning(tuningController, new Car());
-            tuningWindow.ShowDialog();
+            Car car = vehicleselectLV.SelectedItem as Car;
+            if(car != null)
+            {
+                Tuning tuningWindow = new Tuning(tuningController, car);
+                tuningWindow.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No car selected");
+            }
         }
 
         private void backtoGame_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void vehicleselectLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Car car = vehicleselectLV.SelectedItem as Car;
+
+            accelerationLbl.Content = car.GetCalcAcceleration();
+            topspeedLbl.Content = car.GetCalcTopSpeedInKmh();
+            breakforceLbl.Content = car.GetCalcBreakingForce();
+            handlingRangeLbl.Content = car.GetCalcHandlingRange();
+            horsepowerLbl.Content = car.GetCalcPowerInH();
+            weightLbl.Content = car.GetCalcWeight();
+            ratingLbl.Content = car.GetCalcRating();
+            ValueLbl.Content = car.GetCalcValue();
+
+            placeImage("/Images/" + car.Image);
         }
     }
 }
