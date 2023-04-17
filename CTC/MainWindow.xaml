@@ -87,10 +87,14 @@
             <Label x:Name="ValueLbl" Grid.Column="3" Grid.Row="3" Foreground="White" Content="0"/>
 
             <Label Grid.Column="0" Grid.Row="4" Foreground="White" Content="External"/>
-            <Label x:Name="extcolorLbl" Grid.Column="1" Grid.Row="5" Foreground="White" Content="#d9ffcb"/>
+            <Label x:Name="extcolorLbl" Grid.Column="1" Grid.Row="5" Foreground="White" Content="#a52a2a"/>
+            <Rectangle Grid.Column="0" Grid.Row="4"  Stroke="Black" Fill="Transparent"/>
+            <Rectangle Grid.Column="1" Grid.Row="4"  Stroke="Black" Fill="Transparent"/>
 
             <Label Grid.Column="2" Grid.Row="4" Foreground="White" Content="Trim"/>
             <Label x:Name="intcolorLbl" Grid.Column="5" Grid.Row="5" Foreground="White" Content="#d9ffcb"/>
+            <Rectangle Grid.Column="2" Grid.Row="4"  Stroke="Black" Fill="Transparent"/>
+            <Rectangle Grid.Column="5" Grid.Row="4"  Stroke="Black" Fill="Transparent"/>
 
             <Rectangle Grid.Column="0" Grid.Row="0"  Stroke="Black" Fill="Transparent"/>
             <Rectangle Grid.Column="1" Grid.Row="0"  Stroke="Black" Fill="Transparent"/>
