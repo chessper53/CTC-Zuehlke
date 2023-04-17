@@ -105,7 +105,7 @@
             <Rectangle Grid.Column="3" Grid.Row="3"  Stroke="Black" Fill="Transparent"/>
         </Grid>
         <Rectangle HorizontalAlignment="Right" Height="129" Stroke="White" VerticalAlignment="Top" Width="348" Margin="0,70,42,0" Fill="Black"/>
-        <Image x:Name="imageHolder" Height="127" Margin="705,71,43,245" Width="346" Stretch="Fill" VerticalAlignment="Bottom" HorizontalAlignment="Left" Panel.ZIndex="1"/>
+        <Image x:Name="imageHolder" Height="129" Margin="0,70,42,0" Width="348" Stretch="Fill" VerticalAlignment="Top" HorizontalAlignment="Right"/>
 
     </Grid>
 </Window>
