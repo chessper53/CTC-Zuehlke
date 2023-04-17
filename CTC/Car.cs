@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CTC
 {
-    internal class Car
+    internal class Car : ICloneable
     {
         public int CarId { get; set; }
         public string Image { get; set; }
@@ -174,6 +174,10 @@ namespace CTC
         public override string ToString()
         {
             return $"{Brand.Name} {Model}";
+        }
+        public object Clone()
+        {
+            return this.MemberwiseClone();
         }
     }
 }
