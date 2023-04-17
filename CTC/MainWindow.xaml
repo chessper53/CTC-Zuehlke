@@ -45,7 +45,7 @@
         <Label x:Name="brandLbl" Content="[Brand]" HorizontalAlignment="Right" Margin="0,36,98,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
         <Rectangle Height="37" Margin="0,0,42,184" Stroke="Black" VerticalAlignment="Bottom" Width="348" Fill="#FF2B2B2B" HorizontalAlignment="Right"/>
 
-        <ListView x:Name="vehicleselectLV" Margin="40,64,0,64" Background="{x:Null}" BorderBrush="#FFFFE7E7" Foreground="{x:Null}" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" Width="445" >
+        <ListView x:Name="vehicleselectLV" Margin="40,64,0,64" Background="{x:Null}" BorderBrush="#FFFFE7E7" Foreground="White" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" Width="445" >
             <ListView.View>
                 <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle}">
                     <GridViewColumn x:Name="selectedVehicleHdr" Header="Available Vehicles"  DisplayMemberBinding="{Binding vehicles}" />
