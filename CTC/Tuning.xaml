@@ -249,5 +249,10 @@
         <Button x:Name="purchaseBtn" Content="Purchase" Margin="118,0,0,33" VerticalAlignment="Bottom" Height="21" Width="352" Background="#FF2B2B2B" Foreground="White" Click="purchaseBtn_Click" HorizontalAlignment="Left"/>
         <Rectangle Height="33" Margin="0,0,671,0" VerticalAlignment="Bottom" Fill="#FF2B2B2B"/>
 
+        <Label x:Name="exteriorLbl" Foreground="White" HorizontalContentAlignment="Center" FontSize="9" HorizontalAlignment="Left" Margin="842,5,0,0" VerticalAlignment="Top">Exterior</Label>
+        <Label x:Name="interiorLbl" Foreground="White" HorizontalContentAlignment="Center" Margin="790,5,0,0" FontSize="9" HorizontalAlignment="Left" Width="46" VerticalAlignment="Top" >Interior</Label>
+        <Button x:Name="interiorBtn" Content="" HorizontalAlignment="Left" Margin="790,27,0,0" VerticalAlignment="Top" Width="46" BorderBrush="Black" Background="White" Click="interiorBtn_Click"/>
+        <Button x:Name="exteriorBtn" Content="" HorizontalAlignment="Left" Margin="838,27,0,0" VerticalAlignment="Top" Width="46" BorderBrush="Black" Background="Black" Click="exteriorBtn_Click"/>
+
     </Grid>
 </Window>
