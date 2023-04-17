@@ -32,7 +32,6 @@ namespace CTC
             tuningcontroller = tuningController;
             this.car = car;
             this.tuningcontroller = tuningController;
-            labelColouring();
         }
 
         private void purchaseBtn_Click(object sender, RoutedEventArgs e)
@@ -253,7 +252,7 @@ namespace CTC
             horsePowerLbl.Content = null;
             weightLbl.Content = null;
             ratingLbl.Content = null;
-
+        }
         private void interiorBtn_Click(object sender, RoutedEventArgs e)
         {
             string colourHexInterior = "";
