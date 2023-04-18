@@ -33,7 +33,6 @@ namespace CTC
             carController = new CarController();
             tuningController = new TuningController();
 
-
             string iconPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images/car_icon.ico");
             Uri iconUri = new Uri(iconPath);
             this.Icon = BitmapFrame.Create(iconUri);
@@ -74,20 +73,6 @@ namespace CTC
             {
                 Car car = vehicleselectLV.SelectedItem as Car;
 
-
-                accelerationLbl.Content = car.GetCalcAcceleration();
-                topspeedLbl.Content = car.GetCalcTopSpeedInKmh();
-                breakforceLbl.Content = car.GetCalcBreakingForce();
-                handlingRangeLbl.Content = car.GetCalcHandlingRange();
-                horsepowerLbl.Content = car.GetCalcPowerInH();
-                weightLbl.Content = car.GetCalcWeight();
-                ratingLbl.Content = car.GetCalcRating();
-                ValueLbl.Content = car.GetCalcValue();
-                brandLbl.Content = car.Brand;
-                modelLbl.Content = car.Model;
-
-                Car car = vehicleselectLV.SelectedItem as Car;
-
                 accelerationLbl.Content = car.GetCalcAcceleration();
                 topspeedLbl.Content = car.GetCalcTopSpeedInKmh();
                 breakforceLbl.Content = car.GetCalcBreakingForce();
@@ -100,11 +85,6 @@ namespace CTC
                 modelLbl.Content = car.Model;
                 extcolorLbl.Content = car.ColourOutside;
                 intcolorLbl.Content = car.TrimColour;
-
-                placeImage("/Images/" + car.Image);
-
-                colorLabels();
-
 
                 PlaceImage("/Images/" + car.Image);
 
