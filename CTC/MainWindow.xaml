@@ -8,6 +8,31 @@
         Title="Garage" Height="459" Width="1094" MinHeight="459" MinWidth="1094">
 
     <Window.Resources>
+        <Style x:Key="ListViewItemStyle" TargetType="{x:Type ListViewItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                        <Border x:Name="border"
+                        BorderThickness="0,0,0,1"
+                        Background="Transparent">
+                            <GridViewRowPresenter />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="Black" />
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="Black" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
         <Style x:Key="GridViewColumnHeaderStyle" TargetType="{x:Type GridViewColumnHeader}">
             <Setter Property="Template">
                 <Setter.Value>
@@ -43,7 +68,10 @@
         <Label x:Name="brandLbl" Content="[Brand]" HorizontalAlignment="Right" Margin="0,36,98,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
         <Rectangle Height="37" Margin="0,0,42,184" Stroke="Black" VerticalAlignment="Bottom" Width="348" Fill="#FF2B2B2B" HorizontalAlignment="Right"/>
 
-        <ListView x:Name="vehicleselectLV" Margin="40,64,0,64" Background="{x:Null}" BorderBrush="#FFFFE7E7" Foreground="White" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" Width="445" SelectionChanged="vehicleselectLV_SelectionChanged" >
+        <ListView x:Name="vehicleselectLV" Margin="40,64,0,64" Background="{x:Null}"  BorderThickness="2"  BorderBrush="#FFFFE7E7" Foreground="White" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" Width="445" SelectionChanged="vehicleselectLV_SelectionChanged" >
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource ListViewItemStyle}" />
+            </ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle}">
                     <GridViewColumn x:Name="selectedVehicleHdr" Header="Available Vehicles"/>
