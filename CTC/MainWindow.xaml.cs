@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -55,6 +56,8 @@ namespace CTC
                 tuningWindow.ShowDialog();
                 carController.ReloadCars();
                 vehicleselectLV.ItemsSource = carController.ReadCars();
+
+                ClearStats();
             }
             else
             {
@@ -108,5 +111,22 @@ namespace CTC
                 "Weight: Kg" + Environment.NewLine +
                 "Value: In DKK", "Information", MessageBoxButton.OK);
         }
+        private void ClearStats()
+        {
+            PlaceImage("/Images/placeholder_image.jpg");
+            accelerationLbl.Content = "0";
+            topspeedLbl.Content = "0";
+            breakforceLbl.Content = "0";
+            handlingRangeLbl.Content = "0";
+            horsepowerLbl.Content = "0";
+            weightLbl.Content = "0";
+            ratingLbl.Content = "0";
+            ValueLbl.Content = "0";
+            brandLbl.Content = "[Brand]";
+            modelLbl.Content = "[Model]";
+            extcolorLbl.Content = "#FFFFFF";
+            intcolorLbl.Content = "#FFFFFF";
+            ColorLabels();
+        } 
     }
 }
