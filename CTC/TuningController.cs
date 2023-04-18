@@ -48,7 +48,6 @@ namespace CTC
             Car result = Model.Db.Car.Where(c => c.CarId == car.CarId).First();
             Model.Db.Entry(result).CurrentValues.SetValues(car);
             Model.Db.SaveChanges();
-            Model.Cars = Model.Db.Car.ToList();
         }
     }
 }

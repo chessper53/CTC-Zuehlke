@@ -27,8 +27,8 @@ namespace CTC
         public MainWindow()
         {
             InitializeComponent();
-            placeImage("/Images/placeholder_image.jpg");
-            colorLabels();
+            PlaceImage("/Images/placeholder_image.jpg");
+            ColorLabels();
 
             carController = new CarController();
             tuningController = new TuningController();
@@ -37,7 +37,7 @@ namespace CTC
             vehicleselectLV.ItemsSource = carController.ReadCars();
         }
 
-        private void placeImage(String imagelink)
+        private void PlaceImage(String imagelink)
         {
             imageHolder.Source = new BitmapImage(new Uri(imagelink, UriKind.Relative));
         }
@@ -49,6 +49,8 @@ namespace CTC
             {
                 Tuning tuningWindow = new Tuning(tuningController, car);
                 tuningWindow.ShowDialog();
+                carController.ReloadCars();
+                vehicleselectLV.ItemsSource = carController.ReadCars();
             }
             else
             {
@@ -63,27 +65,27 @@ namespace CTC
 
         private void vehicleselectLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if(vehicleselectLV.SelectedItem != null)
+            {
+                Car car = vehicleselectLV.SelectedItem as Car;
 
-            Car car = vehicleselectLV.SelectedItem as Car;
+                accelerationLbl.Content = car.GetCalcAcceleration();
+                topspeedLbl.Content = car.GetCalcTopSpeedInKmh();
+                breakforceLbl.Content = car.GetCalcBreakingForce();
+                handlingRangeLbl.Content = car.GetCalcHandlingRange();
+                horsepowerLbl.Content = car.GetCalcPowerInH();
+                weightLbl.Content = car.GetCalcWeight();
+                ratingLbl.Content = car.GetCalcRating();
+                ValueLbl.Content = car.GetCalcValue();
+                brandLbl.Content = car.Brand;
+                modelLbl.Content = car.Model;
 
-            accelerationLbl.Content = car.GetCalcAcceleration();
-            topspeedLbl.Content = car.GetCalcTopSpeedInKmh();
-            breakforceLbl.Content = car.GetCalcBreakingForce();
-            handlingRangeLbl.Content = car.GetCalcHandlingRange();
-            horsepowerLbl.Content = car.GetCalcPowerInH();
-            weightLbl.Content = car.GetCalcWeight();
-            ratingLbl.Content = car.GetCalcRating();
-            ValueLbl.Content = car.GetCalcValue();
-            brandLbl.Content = car.Brand;
-            modelLbl.Content = car.Model;
+                PlaceImage("/Images/" + car.Image);
 
-            placeImage("/Images/" + car.Image);
-
-            colorLabels();
-
-
+                ColorLabels();
+            }
         }
-        private void colorLabels()
+        private void ColorLabels()
         {
             extcolorLbl.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString(extcolorLbl.Content.ToString()));
 

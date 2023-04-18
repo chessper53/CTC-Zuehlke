@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Google.Protobuf.WellKnownTypes;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -36,6 +37,16 @@ namespace CTC
             Breaks = Db.Break.ToList();
             Brands = Db.Brand.ToList();
             Cars = Db.Car.Include("Brand").Include("Bumper").Include("Exhaust").Include("Nitro").Include("Tyre").Include("RearSpoiler").Include("Rim").Include("Engine").Include("Break").ToList();
+
+            //Tuning parts that can be null
+            Bumper emptyBumper = new Bumper(null,0,"No bumper",0,0);
+            Bumpers.Add(emptyBumper);
+            RearSpoiler emptyRearSpoiler = new RearSpoiler(null,0,0,"No Rear Spoiler",0,0);
+            RearSpoilers.Add(emptyRearSpoiler);
+            Exhaust emptyExhaust = new Exhaust(null,0,0,"No Exhaust",0,0);
+            Exhausts.Add(emptyExhaust);
+            Nitro emptyNitro = new Nitro(null,0,0,0,"No Nitro",0,0);
+            Nitros.Add(emptyNitro);
         }
     }
 }

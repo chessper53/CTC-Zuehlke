@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,10 @@ namespace CTC
         {
             //Placeholder
             return Model.Cars;
+        }
+        public void ReloadCars()
+        {
+            Model = new CTCModel();
         }
     }
 }

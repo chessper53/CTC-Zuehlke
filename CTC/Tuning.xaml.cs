@@ -24,6 +24,7 @@ namespace CTC
     {
         private TuningController tuningcontroller;
         Car car;
+        Car modifiedCar;
 
         internal Tuning(TuningController tuningController, Car car)
         {
@@ -31,44 +32,60 @@ namespace CTC
             clearStats();
             tuningcontroller = tuningController;
             this.car = car;
+            modifiedCar = car;
             this.tuningcontroller = tuningController;
+
+            exteriorBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(car.ColourOutside));
+            interiorBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(car.TrimColour));
         }
 
         private void purchaseBtn_Click(object sender, RoutedEventArgs e)
         {
+            //buy the tuning part
+            tuningcontroller.UpdateCar(modifiedCar);
+            car = (Car)modifiedCar.Clone();
+            clearStats();
         }
 
         private void tuningpartLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if(tuningpartLV.SelectedItem != null)
             {
-                Car modifiedCar = (Car)car.Clone();
+                modifiedCar = (Car)car.Clone();
 
                 switch (tuningpartLV.SelectedItem.GetType().Name)
                 {
                     case "Break":
                         modifiedCar.Break = (Break)tuningpartLV.SelectedItem;
+                        modifiedCar.BreakId = modifiedCar.Break.BreakId;
                         break;
                     case "Bumper":
                         modifiedCar.Bumper = (Bumper)tuningpartLV.SelectedItem;
+                        modifiedCar.BumperId = modifiedCar.Bumper.BumperId;
                         break;
                     case "Engine":
                         modifiedCar.Engine = (Engine)tuningpartLV.SelectedItem;
+                        modifiedCar.EngineId = modifiedCar.Engine.EngineId;
                         break;
                     case "Exhaust":
                         modifiedCar.Exhaust = (Exhaust)tuningpartLV.SelectedItem;
+                        modifiedCar.ExhaustId = modifiedCar.Exhaust.ExhaustId;
                         break;
                     case "Nitro":
                         modifiedCar.Nitro = (Nitro)tuningpartLV.SelectedItem;
+                        modifiedCar.NitroId = modifiedCar.Nitro.NitroId;
                         break;
                     case "RearSpoiler":
                         modifiedCar.RearSpoiler = (RearSpoiler)tuningpartLV.SelectedItem;
+                        modifiedCar.RearSpoilerId = modifiedCar.RearSpoiler.RearSpoilerId;
                         break;
                     case "Rim":
                         modifiedCar.Rim = (Rim)tuningpartLV.SelectedItem;
+                        modifiedCar.RimId = modifiedCar.Rim.RimId;
                         break;
                     case "Tyre":
                         modifiedCar.Tyre = (Tyre)tuningpartLV.SelectedItem;
+                        modifiedCar.TyreId = modifiedCar.Tyre.TyreId;
                         break;
                     default:
                         break;
@@ -103,6 +120,7 @@ namespace CTC
             else
             {
                 clearStats();
+                modifiedCar = (Car)car.Clone();
             }
         }
 
@@ -273,8 +291,9 @@ namespace CTC
                 if (isValidHexColor)
                 {
                     interiorBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(colourHexInterior));
-                } 
 
+                    car.TrimColour=colourHexInterior;
+                } 
             }
         }
 
@@ -298,6 +317,8 @@ namespace CTC
                 if (isValidHexColor)
                 {
                     exteriorBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(colourHexExterior));
+
+                    car.TrimColour = colourHexExterior;
                 }
             }
         }
