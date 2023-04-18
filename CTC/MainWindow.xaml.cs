@@ -33,6 +33,11 @@ namespace CTC
             carController = new CarController();
             tuningController = new TuningController();
 
+
+            string iconPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images/car_icon.ico");
+            Uri iconUri = new Uri(iconPath);
+            this.Icon = BitmapFrame.Create(iconUri);
+
             //set cars as source for view
             vehicleselectLV.ItemsSource = carController.ReadCars();
         }
@@ -69,6 +74,7 @@ namespace CTC
             {
                 Car car = vehicleselectLV.SelectedItem as Car;
 
+
                 accelerationLbl.Content = car.GetCalcAcceleration();
                 topspeedLbl.Content = car.GetCalcTopSpeedInKmh();
                 breakforceLbl.Content = car.GetCalcBreakingForce();
@@ -80,6 +86,26 @@ namespace CTC
                 brandLbl.Content = car.Brand;
                 modelLbl.Content = car.Model;
 
+                Car car = vehicleselectLV.SelectedItem as Car;
+
+                accelerationLbl.Content = car.GetCalcAcceleration();
+                topspeedLbl.Content = car.GetCalcTopSpeedInKmh();
+                breakforceLbl.Content = car.GetCalcBreakingForce();
+                handlingRangeLbl.Content = car.GetCalcHandlingRange();
+                horsepowerLbl.Content = car.GetCalcPowerInH();
+                weightLbl.Content = car.GetCalcWeight();
+                ratingLbl.Content = car.GetCalcRating();
+                ValueLbl.Content = car.GetCalcValue();
+                brandLbl.Content = car.Brand.Name;
+                modelLbl.Content = car.Model;
+                extcolorLbl.Content = car.ColourOutside;
+                intcolorLbl.Content = car.TrimColour;
+
+                placeImage("/Images/" + car.Image);
+
+                colorLabels();
+
+
                 PlaceImage("/Images/" + car.Image);
 
                 ColorLabels();
@@ -90,6 +116,17 @@ namespace CTC
             extcolorLbl.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString(extcolorLbl.Content.ToString()));
 
             intcolorLbl.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString(intcolorLbl.Content.ToString()));
+        }
+
+        private void infoboxBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Acceleration: Time needed to go from 0-100 km/h" + Environment.NewLine +
+                "Topspeed: Km/h" + Environment.NewLine +
+                "Brakeforce: Brakeforce in Newton" + Environment.NewLine +
+                "Handling Range: The Handling rated on a scale of 0-50" + Environment.NewLine +
+                "Horsepower: PS" + Environment.NewLine +
+                "Weight: Kg" + Environment.NewLine +
+                "Value: In DKK", "Information", MessageBoxButton.OK);
         }
     }
 }

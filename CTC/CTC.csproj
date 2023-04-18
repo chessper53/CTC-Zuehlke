@@ -32,6 +32,10 @@
 
     <None Remove="Images\car_blueprint.png" />
 
+    <None Remove="Images\car_icon.ico" />
+
+    <None Remove="Images\Information-icon.png" />
+
     <None Remove="Images\placeholder_image.jpg" />
 
     <None Remove="Images\tyrestack.png" />
@@ -49,6 +53,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\car_blueprint.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\car_icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Information-icon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\placeholder_image.jpg">

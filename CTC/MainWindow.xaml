@@ -26,8 +26,6 @@
     </Window.Resources>
 
     <Grid Background="#FF0C1E9A">
-
-
         <Rectangle Width="426" Margin="398,33,270,26">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/tyrestack.png" Stretch="Uniform"/>
@@ -67,8 +65,8 @@
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
-            
-            
+
+
             <Label Foreground="White" Content="Acceleration"/>
             <Label x:Name="accelerationLbl" Grid.Column="1" Foreground="White" Content="0"/>
             <Label Grid.Column="2" Foreground="White" Content="Horsepower"/>
@@ -87,10 +85,14 @@
             <Label x:Name="ValueLbl" Grid.Column="3" Grid.Row="3" Foreground="White" Content="0"/>
 
             <Label Grid.Column="0" Grid.Row="4" Foreground="White" Content="External"/>
-            <Label x:Name="extcolorLbl" Grid.Column="1" Grid.Row="5" Foreground="White" Content="#d9ffcb"/>
+            <Label x:Name="extcolorLbl" Grid.Column="1" Grid.Row="5" Foreground="White" Content="#a52a2a"/>
+            <Rectangle Grid.Column="0" Grid.Row="4"  Stroke="Black" Fill="Transparent"/>
+            <Rectangle Grid.Column="1" Grid.Row="4"  Stroke="Black" Fill="Transparent"/>
 
             <Label Grid.Column="2" Grid.Row="4" Foreground="White" Content="Trim"/>
             <Label x:Name="intcolorLbl" Grid.Column="5" Grid.Row="5" Foreground="White" Content="#d9ffcb"/>
+            <Rectangle Grid.Column="2" Grid.Row="4"  Stroke="Black" Fill="Transparent"/>
+            <Rectangle Grid.Column="5" Grid.Row="4"  Stroke="Black" Fill="Transparent"/>
 
             <Rectangle Grid.Column="0" Grid.Row="0"  Stroke="Black" Fill="Transparent"/>
             <Rectangle Grid.Column="1" Grid.Row="0"  Stroke="Black" Fill="Transparent"/>
@@ -114,6 +116,12 @@
         </Grid>
         <Rectangle HorizontalAlignment="Right" Height="129" Stroke="White" VerticalAlignment="Top" Width="348" Margin="0,70,42,0" Fill="Black"/>
         <Image x:Name="imageHolder" Height="129" Margin="0,70,42,0" Width="348" Stretch="Fill" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+        <Rectangle HorizontalAlignment="Right" Height="24" Margin="0,0,210,190" Stroke="Black" VerticalAlignment="Bottom" Width="12" Fill="White"/>
+        <Button x:Name="infoboxBtn" Content="Button" HorizontalAlignment="Right" Margin="0,0,200,188" VerticalAlignment="Bottom" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="29" Width="32" Click="infoboxBtn_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/Information-icon.png"/>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Window>
