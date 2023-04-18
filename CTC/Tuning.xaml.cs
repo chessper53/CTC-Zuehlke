@@ -29,6 +29,12 @@ namespace CTC
         {
             InitializeComponent();
             clearStats();
+
+            string iconPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images/car_icon.ico");
+            Uri iconUri = new Uri(iconPath);
+            this.Icon = BitmapFrame.Create(iconUri);
+
+
             tuningcontroller = tuningController;
             this.car = car;
             this.tuningcontroller = tuningController;
@@ -300,6 +306,17 @@ namespace CTC
                     exteriorBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(colourHexExterior));
                 }
             }
+        }
+
+        private void infoboxBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Acceleration: Time needed to go from 0-100 km/h" + Environment.NewLine +
+                "Topspeed: Km/h" + Environment.NewLine +
+                "Brakeforce: Brakeforce in Newton" + Environment.NewLine +
+                "Handling Range: The Handling rated on a scale of 0-50" + Environment.NewLine +
+                "Horsepower: PS" + Environment.NewLine +
+                "Weight: Kg" + Environment.NewLine +
+                "Value: In DKK", "Information", MessageBoxButton.OK);
         }
     }
 }
