@@ -109,16 +109,22 @@ namespace CTC
             if (vehicleselectLV.SelectedItem != null)
             {
                 Car car = vehicleselectLV.SelectedItem as Car;
+                if(car.NitroId != null)
+                {
+                    //Car is Selected and has Nitro
+                    currentCar =
+                    "Currently Selected Nitro: " + car.Nitro.Type + Environment.NewLine +
+                    "Acceleration Increase: +" + car.Nitro.
 
-                //Car is Selected
-                currentCar =
-                "Currently Selected Nitro: " + car.Nitro.Type + Environment.NewLine +
-                "Acceleration Increase: +" + car.Nitro.
-
-                TempAccelerationImpact + Environment.NewLine +
-                "Recharge Time: " + car.Nitro.RechargeTime + " seconds" + Environment.NewLine +
-                "Charges: +" + car.Nitro.Charges + Environment.NewLine;
-
+                    TempAccelerationImpact + Environment.NewLine +
+                    "Recharge Time: " + car.Nitro.RechargeTime + " seconds" + Environment.NewLine +
+                    "Charges: +" + car.Nitro.Charges + Environment.NewLine;
+                }
+                else
+                {
+                    //No Nitro is set
+                    currentCar = "Car has no Nitro attached!";
+                }
             }
             else
             {

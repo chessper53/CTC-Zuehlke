@@ -336,15 +336,22 @@ namespace CTC
             string currentNitro;
             if (tuningpartLV.SelectedItem != null && tuningpartLV.SelectedItem.GetType().Name.Equals("Nitro"))
             {
-                //Nitro is Selected
-                currentNitro = 
-                "Currently Selected Nitro: " + modifiedCar.Nitro.Type + Environment.NewLine +
-                "Acceleration Increase: +" + modifiedCar.Nitro.
-                
-                TempAccelerationImpact + Environment.NewLine +
-                "Recharge Time: " + modifiedCar.Nitro.RechargeTime + " seconds" + Environment.NewLine +
-                "Charges: +" + modifiedCar.Nitro.Charges + Environment.NewLine;
+                if(modifiedCar.NitroId != null)
+                {
+                    //Nitro is Selected and is set
+                    currentNitro =
+                    "Currently Selected Nitro: " + modifiedCar.Nitro.Type + Environment.NewLine +
+                    "Acceleration Increase: +" + modifiedCar.Nitro.
 
+                    TempAccelerationImpact + Environment.NewLine +
+                    "Recharge Time: " + modifiedCar.Nitro.RechargeTime + " seconds" + Environment.NewLine +
+                    "Charges: +" + modifiedCar.Nitro.Charges + Environment.NewLine;
+                }
+                else
+                {
+                    //No Nitro is set
+                    currentNitro = "Car has no Nitro attached!";
+                }
             }
             else
             {
