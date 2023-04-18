@@ -23,9 +23,6 @@ namespace CTC
 
         public Config()
         {
-            var folder = Environment.SpecialFolder.LocalApplicationData;
-            var path = Environment.GetFolderPath(folder);
-            DbPath = System.IO.Path.Join(path, "ctc.db");
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
