@@ -34,6 +34,7 @@ namespace CTC
             carController = new CarController();
             tuningController = new TuningController();
 
+            // Set Icon
             string iconPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images/car_icon.ico");
             Uri iconUri = new Uri(iconPath);
             this.Icon = BitmapFrame.Create(iconUri);
