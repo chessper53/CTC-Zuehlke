@@ -1,6 +1,7 @@
 ﻿using Mysqlx;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -325,7 +326,7 @@ namespace CTC
                 {
                     exteriorBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(colourHexExterior));
 
-                    car.TrimColour = colourHexExterior;
+                    car.ColourOutside = colourHexExterior;
                 }
             }
         }
@@ -339,6 +340,37 @@ namespace CTC
                 "Horsepower: PS" + Environment.NewLine +
                 "Weight: Kg" + Environment.NewLine +
                 "Value: In DKK", "Information", MessageBoxButton.OK);
+        }
+
+        private void SortListView(string by)
+        {
+            try
+            {
+                CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(tuningpartLV.ItemsSource);
+                view.SortDescriptions.Clear();
+                view.SortDescriptions.Add(new System.ComponentModel.SortDescription(by, System.ComponentModel.ListSortDirection.Ascending));
+            }
+            catch(Exception ex)
+            {
+
+            }
+        }
+
+        void Header_Click(object sender, RoutedEventArgs e)
+        {
+            var headerClicked = e.OriginalSource as GridViewColumnHeader;
+
+            if (headerClicked != null)
+            {
+                if(headerClicked.Content.Equals("Price"))
+                {
+                    SortListView("Price");
+                }
+                else
+                {
+                    SortListView("Type");
+                }
+            }
         }
     }
 }
