@@ -104,13 +104,37 @@ namespace CTC
 
         private void infoboxBtn_Click(object sender, RoutedEventArgs e)
         {
+
+            string currentCar;
+            if (vehicleselectLV.SelectedItem != null)
+            {
+                Car car = vehicleselectLV.SelectedItem as Car;
+
+                //Car is Selected
+                currentCar =
+                "Currently Selected Nitro: " + car.Nitro.Type + Environment.NewLine +
+                "Acceleration Increase: +" + car.Nitro.
+
+                TempAccelerationImpact + Environment.NewLine +
+                "Recharge Time: " + car.Nitro.RechargeTime + " seconds" + Environment.NewLine +
+                "Charges: +" + car.Nitro.Charges + Environment.NewLine;
+
+            }
+            else
+            {
+                //No Nitro is Selected
+                currentCar = "No Car is Selected!";
+            }
+
             MessageBox.Show("Acceleration: Time needed to go from 0-100 km/h" + Environment.NewLine +
-                "Topspeed: Km/h" + Environment.NewLine +
-                "Brakeforce: Brakeforce in Newton" + Environment.NewLine +
-                "Handling Range: The Handling rated on a scale of 0-50" + Environment.NewLine +
-                "Horsepower: PS" + Environment.NewLine +
-                "Weight: Kg" + Environment.NewLine +
-                "Value: In DKK", "Information", MessageBoxButton.OK);
+            "Topspeed: Km/h" + Environment.NewLine +
+            "Brakeforce: Brakeforce in Newton" + Environment.NewLine +
+            "Handling Range: The Handling rated on a scale of 0-50" + Environment.NewLine +
+            "Horsepower: PS" + Environment.NewLine +
+            "Weight: Kg" + Environment.NewLine +
+            "Value: In DKK" + Environment.NewLine + Environment.NewLine +
+            "Nitro is an ingame Consumable!" + Environment.NewLine +
+            Environment.NewLine + currentCar, "Information", MessageBoxButton.OK);
         }
         private void ClearStats()
         {
