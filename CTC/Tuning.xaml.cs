@@ -393,22 +393,15 @@ namespace CTC
             {
                 colourHexInterior = Microsoft.VisualBasic.Interaction.InputBox("Please enter the desired colour (HEX):", "Colour", "");
 
-                if (colourHexInterior.StartsWith("#"))
-                {
-                }
-                else
-                {
-                    colourHexInterior = "#" + colourHexInterior;
-                }
-
-                Regex hexColorRegex = new Regex(@"^#?([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$");
-                bool isValidHexColor = hexColorRegex.IsMatch(colourHexInterior);
-                if (isValidHexColor)
+                try
                 {
                     interiorBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(colourHexInterior));
+                    car.TrimColour = colourHexInterior;
+                }
+                catch (Exception ex)
+                {
 
-                    car.TrimColour=colourHexInterior;
-                } 
+                }
             }
         }
 
@@ -418,22 +411,14 @@ namespace CTC
             while (string.IsNullOrEmpty(colourHexExterior))
             {
                 colourHexExterior = Microsoft.VisualBasic.Interaction.InputBox("Please enter the desired colour (HEX):", "Colour", "");
-
-                if (colourHexExterior.StartsWith("#"))
-                {
-                }
-                else
-                {
-                    colourHexExterior = "#" + colourHexExterior;
-                }
-
-                Regex hexColorRegex = new Regex(@"^#?([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$");
-                bool isValidHexColor = hexColorRegex.IsMatch(colourHexExterior);
-                if (isValidHexColor)
+                try
                 {
                     exteriorBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(colourHexExterior));
-
                     car.ColourOutside = colourHexExterior;
+                }
+                catch(Exception ex)
+                {
+
                 }
             }
         }
@@ -490,6 +475,7 @@ namespace CTC
                 CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(tuningpartLV.ItemsSource);
                 view.SortDescriptions.Clear();
                 view.SortDescriptions.Add(new System.ComponentModel.SortDescription(by, System.ComponentModel.ListSortDirection.Ascending));
+
             }
             catch(Exception ex)
             {
