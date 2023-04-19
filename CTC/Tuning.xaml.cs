@@ -425,7 +425,8 @@ namespace CTC
 
         private void infoboxBtn_Click(object sender, RoutedEventArgs e)
         {
-            string currentNitro;
+            string attachedNitro = "";
+            string currentNitro = "";
             if (tuningpartLV.SelectedItem != null && tuningpartLV.SelectedItem.GetType().Name.Equals("Nitro"))
             {
                 if(modifiedCar.NitroId != null)
@@ -441,14 +442,30 @@ namespace CTC
                 }
                 else
                 {
-                    //No Nitro is set
-                    currentNitro = "Car has no Nitro attached!";
+                    //No Nitro is attached
+                    currentNitro = "No Nirto is Selected!";
                 }
             }
             else
             {
                 //No Nitro is Selected
                 currentNitro = "No Nirto is Selected!";
+            }
+
+            if(car.Nitro != null)
+            {
+                //Nitro is Selected and is set
+                attachedNitro =
+                "Currently Attached Nitro: " + car.Nitro.Type + Environment.NewLine +
+                "Acceleration Increase: +" + car.Nitro.
+
+                TempAccelerationImpact + Environment.NewLine +
+                "Recharge Time: " + car.Nitro.RechargeTime + " seconds" + Environment.NewLine +
+                "Charges: +" + car.Nitro.Charges + Environment.NewLine;
+            }
+            else
+            {
+                attachedNitro = "No Nirto is attached!";
             }
             MessageBox.Show("Acceleration: Time needed to go from 0-100 km/h" + Environment.NewLine +
             "Topspeed: Km/h" + Environment.NewLine +
@@ -458,10 +475,7 @@ namespace CTC
             "Weight: Kg" + Environment.NewLine +
             "Value: In DKK" + Environment.NewLine + Environment.NewLine +
             "Nitro is an ingame Consumable!" + Environment.NewLine +
-            "Current Nitro: " + car.Nitro.Type + Environment.NewLine + 
-            "Acceleration Increase: +" + car.Nitro.TempAccelerationImpact + Environment.NewLine +
-            "Recharge Time: " + car.Nitro.RechargeTime +" seconds"+ Environment.NewLine +
-            "Charges: +" + car.Nitro.Charges + Environment.NewLine + Environment.NewLine + currentNitro, "Information", MessageBoxButton.OK);
+            attachedNitro + Environment.NewLine + currentNitro, "Information", MessageBoxButton.OK);
 
 
 
