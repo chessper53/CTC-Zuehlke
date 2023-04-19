@@ -148,24 +148,24 @@ namespace CTC
 
             if (Exhaust != null)
             {
-                calcValue += Exhaust.ImpactRating;
+                calcValue += Exhaust.Price;
             }
             if (Bumper != null)
             {
-                calcValue += Bumper.ImpactRating;
+                calcValue += Bumper.Price;
             }
             if (RearSpoiler != null)
             {
-                calcValue += RearSpoiler.ImpactRating;
+                calcValue += RearSpoiler.Price;
             }
-            calcValue += Rim.ImpactRating;
-            calcValue += Tyre.ImpactRating;
-            calcValue += Break.ImpactRating;
+            calcValue += Rim.Price;
+            calcValue += Tyre.Price;
+            calcValue += Break.Price;
             if (Nitro != null)
             {
-                calcValue += Nitro.ImpactRating;
+                calcValue += Nitro.Price;
             }
-            calcValue += Engine.ImpactRating;
+            calcValue += Engine.Price;
 
             calcValue = Math.Round(calcValue, 2);
 
