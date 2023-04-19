@@ -32,6 +32,7 @@ namespace CTC
     {
         private TuningController tuningcontroller;
         private ObservableCollection<string> items;
+        private Boolean isSomethingSelected = false;
         Car car;
         Car modifiedCar;
 
@@ -57,22 +58,32 @@ namespace CTC
 
         private void purchaseBtn_Click(object sender, RoutedEventArgs e)
         {
-            //buy the tuning part
-            tuningcontroller.UpdateCar(modifiedCar);
-            car = (Car)modifiedCar.Clone();
-            clearStats();
+            if (isSomethingSelected)
+            {
+                //buy the tuning part
+                tuningcontroller.UpdateCar(modifiedCar);
+                car = (Car)modifiedCar.Clone();
+                clearStats();
 
 
-            // Changes the Header of tuningpartLV to its new content
-            var column = tuningpartLV.FindName("selectedPartHdr") as GridViewColumn;
-            column.Header = "Tuning Parts";
-            tuningpartLV.ItemsSource = null;
+                // Changes the Header of tuningpartLV to its new content
+                var column = tuningpartLV.FindName("selectedPartHdr") as GridViewColumn;
+                column.Header = "Tuning Parts";
+                tuningpartLV.ItemsSource = null;
 
-
+                //Shows the Purchase Confirmation
+                MessageBox.Show("Purchase Successful");
+                isSomethingSelected = false;
+            }
+            else
+            {
+                MessageBox.Show("Please select something to buy!");
+            }
         }
 
         private void tuningpartLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            isSomethingSelected = true;
             if (tuningpartLV.SelectedItem != null)
             {
                 modifiedCar = (Car)car.Clone();
@@ -145,7 +156,6 @@ namespace CTC
             {
                 clearStats();
                 modifiedCar = (Car)car.Clone();
-
             }
         }
 
@@ -155,7 +165,6 @@ namespace CTC
             // Changes the Header of tuningpartLV to its new content
             var column = tuningpartLV.FindName("selectedPartHdr") as GridViewColumn;
             column.Header = "Engines";
-
 
             //Sets the Content of the ListView
             tuningpartLV.ItemsSource = tuningcontroller.ReadEngine();

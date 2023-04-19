@@ -24,7 +24,7 @@
             <Setter Property="FontFamily" Value="Segoe UI" />
             <Setter Property="FontSize" Value="12" />
         </Style>
-        
+
         <Style x:Key="ListViewItemStyle" TargetType="{x:Type ListViewItem}">
             <Setter Property="Template">
                 <Setter.Value>
@@ -288,7 +288,6 @@
                 <ImageBrush ImageSource="/Images/Information-icon.png"/>
             </Button.Background>
         </Button>
-
 
 
     </Grid>
