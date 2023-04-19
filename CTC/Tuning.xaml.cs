@@ -1,19 +1,26 @@
 ﻿using Mysqlx;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
+using System.Net.NetworkInformation;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 using static Mysqlx.Datatypes.Scalar.Types;
 
 namespace CTC
@@ -24,6 +31,7 @@ namespace CTC
     public partial class Tuning : Window
     {
         private TuningController tuningcontroller;
+        private ObservableCollection<string> items;
         Car car;
         Car modifiedCar;
 
@@ -53,11 +61,19 @@ namespace CTC
             tuningcontroller.UpdateCar(modifiedCar);
             car = (Car)modifiedCar.Clone();
             clearStats();
+
+
+            // Changes the Header of tuningpartLV to its new content
+            var column = tuningpartLV.FindName("selectedPartHdr") as GridViewColumn;
+            column.Header = "Tuning Parts";
+            tuningpartLV.ItemsSource = null;
+
+
         }
 
         private void tuningpartLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(tuningpartLV.SelectedItem != null)
+            if (tuningpartLV.SelectedItem != null)
             {
                 modifiedCar = (Car)car.Clone();
 
@@ -129,10 +145,12 @@ namespace CTC
             {
                 clearStats();
                 modifiedCar = (Car)car.Clone();
+
             }
         }
 
-        private void engineBtn_Click(object sender, RoutedEventArgs e)
+
+        private async void engineBtn_Click(object sender, RoutedEventArgs e)
         {
             // Changes the Header of tuningpartLV to its new content
             var column = tuningpartLV.FindName("selectedPartHdr") as GridViewColumn;
@@ -141,9 +159,20 @@ namespace CTC
 
             //Sets the Content of the ListView
             tuningpartLV.ItemsSource = tuningcontroller.ReadEngine();
+
+            Engine matchingItem = tuningpartLV.Items.Cast<Engine>().FirstOrDefault(x => x.EngineId == car.EngineId);
+
+            // Wait for the container elements to be generated
+            await Task.Delay(1);
+
+            // Get the container element for the matching item and set its foreground color
+            if (matchingItem != null && tuningpartLV.ItemContainerGenerator.ContainerFromItem(matchingItem) is ListViewItem listViewItem)
+            {
+                listViewItem.Foreground = Brushes.LightGreen;
+            }
         }
 
-        private void bumperBtn_Click(object sender, RoutedEventArgs e)
+        private async void bumperBtn_Click(object sender, RoutedEventArgs e)
         {
             // Changes the Header of tuningpartLV to its new content
             var column = tuningpartLV.FindName("selectedPartHdr") as GridViewColumn;
@@ -151,9 +180,20 @@ namespace CTC
 
             //Sets the Content of the ListView
             tuningpartLV.ItemsSource = tuningcontroller.ReadBumpers();
+
+            Bumper matchingItem = tuningpartLV.Items.Cast<Bumper>().FirstOrDefault(x => x.BumperId == car.BumperId);
+
+            // Wait for the container elements to be generated
+            await Task.Delay(1);
+
+            // Get the container element for the matching item and set its foreground color
+            if (matchingItem != null && tuningpartLV.ItemContainerGenerator.ContainerFromItem(matchingItem) is ListViewItem listViewItem)
+            {
+                listViewItem.Foreground = Brushes.LightGreen;
+            }
         }
 
-        private void tyreBtn_Click(object sender, RoutedEventArgs e)
+        private async void tyreBtn_Click(object sender, RoutedEventArgs e)
         {
             // Changes the Header of tuningpartLV to its new content
             var column = tuningpartLV.FindName("selectedPartHdr") as GridViewColumn;
@@ -161,9 +201,20 @@ namespace CTC
 
             //Sets the Content of the ListView
             tuningpartLV.ItemsSource = tuningcontroller.ReadTyre();
+
+            Tyre matchingItem = tuningpartLV.Items.Cast<Tyre>().FirstOrDefault(x => x.TyreId == car.TyreId);
+
+            // Wait for the container elements to be generated
+            await Task.Delay(1);
+
+            // Get the container element for the matching item and set its foreground color
+            if (matchingItem != null && tuningpartLV.ItemContainerGenerator.ContainerFromItem(matchingItem) is ListViewItem listViewItem)
+            {
+                listViewItem.Foreground = Brushes.LightGreen;
+            }
         }
 
-        private void brakesBtn_Click(object sender, RoutedEventArgs e)
+        private async void brakesBtn_Click(object sender, RoutedEventArgs e)
         {
             // Changes the Header of tuningpartLV to its new content
             var column = tuningpartLV.FindName("selectedPartHdr") as GridViewColumn;
@@ -171,9 +222,20 @@ namespace CTC
 
             //Sets the Content of the ListView
             tuningpartLV.ItemsSource = tuningcontroller.ReadBreak();
+
+            Break matchingItem = tuningpartLV.Items.Cast<Break>().FirstOrDefault(x => x.BreakId == car.BreakId);
+
+            // Wait for the container elements to be generated
+            await Task.Delay(1);
+
+            // Get the container element for the matching item and set its foreground color
+            if (matchingItem != null && tuningpartLV.ItemContainerGenerator.ContainerFromItem(matchingItem) is ListViewItem listViewItem)
+            {
+                listViewItem.Foreground = Brushes.LightGreen;
+            }
         }
 
-        private void rimBtn_Click(object sender, RoutedEventArgs e)
+        private async void rimBtn_Click(object sender, RoutedEventArgs e)
         {
             // Changes the Header of tuningpartLV to its new content
             var column = tuningpartLV.FindName("selectedPartHdr") as GridViewColumn;
@@ -181,9 +243,20 @@ namespace CTC
 
             //Sets the Content of the ListView
             tuningpartLV.ItemsSource = tuningcontroller.ReadRim();
+
+            Rim matchingItem = tuningpartLV.Items.Cast<Rim>().FirstOrDefault(x => x.RimId == car.RimId);
+
+            // Wait for the container elements to be generated
+            await Task.Delay(1);
+
+            // Get the container element for the matching item and set its foreground color
+            if (matchingItem != null && tuningpartLV.ItemContainerGenerator.ContainerFromItem(matchingItem) is ListViewItem listViewItem)
+            {
+                listViewItem.Foreground = Brushes.LightGreen;
+            }
         }
 
-        private void exhaustBtn_Click(object sender, RoutedEventArgs e)
+        private async void exhaustBtn_Click(object sender, RoutedEventArgs e)
         {
             // Changes the Header of tuningpartLV to its new content
             var column = tuningpartLV.FindName("selectedPartHdr") as GridViewColumn;
@@ -191,9 +264,20 @@ namespace CTC
 
             //Sets the Content of the ListView
             tuningpartLV.ItemsSource = tuningcontroller.ReadExhaust();
+
+            Exhaust matchingItem = tuningpartLV.Items.Cast<Exhaust>().FirstOrDefault(x => x.ExhaustId == car.ExhaustId);
+
+            // Wait for the container elements to be generated
+            await Task.Delay(1);
+
+            // Get the container element for the matching item and set its foreground color
+            if (matchingItem != null && tuningpartLV.ItemContainerGenerator.ContainerFromItem(matchingItem) is ListViewItem listViewItem)
+            {
+                listViewItem.Foreground = Brushes.LightGreen;
+            }
         }
 
-        private void nitroBtn_Click(object sender, RoutedEventArgs e)
+        private async void nitroBtn_Click(object sender, RoutedEventArgs e)
         {
             // Changes the Header of tuningpartLV to its new content
             var column = tuningpartLV.FindName("selectedPartHdr") as GridViewColumn;
@@ -201,9 +285,20 @@ namespace CTC
 
             //Sets the Content of the ListView
             tuningpartLV.ItemsSource = tuningcontroller.ReadNitro();
+
+            Nitro matchingItem = tuningpartLV.Items.Cast<Nitro>().FirstOrDefault(x => x.NitroId == car.NitroId);
+
+            // Wait for the container elements to be generated
+            await Task.Delay(1);
+
+            // Get the container element for the matching item and set its foreground color
+            if (matchingItem != null && tuningpartLV.ItemContainerGenerator.ContainerFromItem(matchingItem) is ListViewItem listViewItem)
+            {
+                listViewItem.Foreground = Brushes.LightGreen;
+            }
         }
 
-        private void spoilerBtn_Click(object sender, RoutedEventArgs e)
+        private async void spoilerBtn_Click(object sender, RoutedEventArgs e)
         {
             // Changes the Header of tuningpartLV to its new content
             var column = tuningpartLV.FindName("selectedPartHdr") as GridViewColumn;
@@ -211,6 +306,17 @@ namespace CTC
 
             //Sets the Content of the ListView
             tuningpartLV.ItemsSource = tuningcontroller.ReadRearSpoiler();
+
+            RearSpoiler matchingItem = tuningpartLV.Items.Cast<RearSpoiler>().FirstOrDefault(x => x.RearSpoilerId == car.RearSpoilerId);
+
+            // Wait for the container elements to be generated
+            await Task.Delay(1);
+
+            // Get the container element for the matching item and set its foreground color
+            if (matchingItem != null && tuningpartLV.ItemContainerGenerator.ContainerFromItem(matchingItem) is ListViewItem listViewItem)
+            {
+                listViewItem.Foreground = Brushes.LightGreen;
+            }
         }
 
         private void labelColouring()
@@ -279,6 +385,7 @@ namespace CTC
             weightLbl.Content = null;
             ratingLbl.Content = null;
         }
+
         private void interiorBtn_Click(object sender, RoutedEventArgs e)
         {
             string colourHexInterior = "";
