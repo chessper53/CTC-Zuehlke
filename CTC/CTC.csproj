@@ -39,6 +39,9 @@
 
     <None Remove="Images\car6.jpg" />
 
+
+    <None Remove="Images\car7.jpg" />
+
     <None Remove="Images\car_blueprint.png" />
 
     <None Remove="Images\car_icon.ico" />
@@ -68,6 +71,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\car6.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\car7.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\car_blueprint.png">

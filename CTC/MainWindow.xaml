@@ -50,107 +50,109 @@
         </Style>
     </Window.Resources>
     <Viewbox MinHeight="459" MinWidth="1094" Stretch="Uniform" UseLayoutRounding="True" SnapsToDevicePixels="True" Margin="0,0,0,-6" >
-    <Grid Background="#FF0C1E9A" Height="470" Width="1147">
-        <Rectangle Width="426" Margin="398,33,270,26">
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="/tyrestack.png" Stretch="Uniform"/>
-            </Rectangle.Fill>
-        </Rectangle>
+        <Grid Background="#FF0C1E9A" Height="470" Width="1147">
+            <Rectangle Width="426" Margin="398,33,270,26">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/tyrestack.png" Stretch="Uniform"/>
+                </Rectangle.Fill>
+            </Rectangle>
 
-        <Rectangle HorizontalAlignment="Left" Height="37" Margin="40,27,0,0" Stroke="Black" VerticalAlignment="Top" Width="445" Fill="#FF2B2B2B"/>
-        <Label Content="Vehicle Selection" HorizontalAlignment="Left" Margin="198,30,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
-        <Button x:Name="tuneVehiclebtn" Content="Tune Vehicle" HorizontalAlignment="Left" Margin="180,0,0,26" VerticalAlignment="Bottom" Height="37" Width="305" Background="#FF2B2B2B" Foreground="White" Click="tuneVehiclebtn_Click" FontSize="16" BorderBrush="Black" />
-        <Button x:Name="backtoGame" Content="Back to Game" HorizontalAlignment="Left" Margin="40,0,0,26" VerticalAlignment="Bottom" Height="37" Width="140" Background="#FF2B2B2B" Foreground="White"  FontSize="16" BorderBrush="Black" Click="backtoGame_Click" />
-        <Rectangle Stroke="Black" Width="445" Fill="#FF2B2B2B" Margin="40,64,0,63" HorizontalAlignment="Left"/>
-        <Rectangle HorizontalAlignment="Right" Height="37" Margin="0,33,42,0" Stroke="Black" VerticalAlignment="Top" Width="174" Fill="#FF2B2B2B" />
-        <Rectangle HorizontalAlignment="Right" Height="37" Margin="0,33,216,0" Stroke="Black" VerticalAlignment="Top" Width="174" Fill="#FF2B2B2B"/>
-        <Label x:Name="modelLbl" Content="[Model]" HorizontalAlignment="Right" Margin="0,36,270,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
-        <Label x:Name="brandLbl" Content="[Brand]" HorizontalAlignment="Right" Margin="0,36,98,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
-        <Rectangle Height="37" Margin="0,0,42,184" Stroke="Black" VerticalAlignment="Bottom" Width="348" Fill="#FF2B2B2B" HorizontalAlignment="Right"/>
+            <Rectangle HorizontalAlignment="Left" Height="37" Margin="40,27,0,0" Stroke="Black" VerticalAlignment="Top" Width="445" Fill="#FF2B2B2B"/>
+            <Label Content="Vehicle Selection" HorizontalAlignment="Left" Margin="198,30,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
+            <Button x:Name="tuneVehiclebtn" Content="Tune Vehicle" HorizontalAlignment="Left" Margin="180,0,0,26" VerticalAlignment="Bottom" Height="37" Width="305" Background="#FF2B2B2B" Foreground="White" Click="tuneVehiclebtn_Click" FontSize="16" BorderBrush="Black" />
+            <Button x:Name="backtoGame" Content="Back to Game" HorizontalAlignment="Left" Margin="40,0,0,26" VerticalAlignment="Bottom" Height="37" Width="140" Background="#FF2B2B2B" Foreground="White"  FontSize="16" BorderBrush="Black" Click="backtoGame_Click" />
+            <Rectangle Stroke="Black" Width="445" Fill="#FF2B2B2B" Margin="40,64,0,63" HorizontalAlignment="Left"/>
+            <Rectangle HorizontalAlignment="Right" Height="37" Margin="0,33,42,0" Stroke="Black" VerticalAlignment="Top" Width="174" Fill="#FF2B2B2B" />
+            <Rectangle HorizontalAlignment="Right" Height="37" Margin="0,33,216,0" Stroke="Black" VerticalAlignment="Top" Width="174" Fill="#FF2B2B2B"/>
+            <Label x:Name="modelLbl" Content="[Model]" HorizontalAlignment="Right" Margin="0,38,216,0" VerticalAlignment="Top" Foreground="White" HorizontalContentAlignment="Center" 
+       VerticalContentAlignment="Center" Width="174"/>
+            <Label x:Name="brandLbl" Content="[Brand]" HorizontalAlignment="Right" Margin="0,38,42,0" VerticalAlignment="Top" Foreground="White" HorizontalContentAlignment="Center" 
+       VerticalContentAlignment="Center" Width="174"/>
+            <Rectangle Height="37" Margin="0,0,42,184" Stroke="Black" VerticalAlignment="Bottom" Width="348" Fill="#FF2B2B2B" HorizontalAlignment="Right"/>
 
-        <ListView x:Name="vehicleselectLV" Margin="40,64,0,64" Background="{x:Null}"  BorderThickness="2"  BorderBrush="#FFFFE7E7" Foreground="White" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" Width="445" SelectionChanged="vehicleselectLV_SelectionChanged" >
-            <ListView.ItemContainerStyle>
-                <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource ListViewItemStyle}" />
-            </ListView.ItemContainerStyle>
-            <ListView.View>
-                <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle}">
-                    <GridViewColumn x:Name="selectedVehicleHdr" Header="Available Vehicles"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+            <ListView x:Name="vehicleselectLV" Margin="40,64,0,64" Background="{x:Null}"  BorderThickness="2"  BorderBrush="#FFFFE7E7" Foreground="White" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" Width="445" SelectionChanged="vehicleselectLV_SelectionChanged" >
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource ListViewItemStyle}" />
+                </ListView.ItemContainerStyle>
+                <ListView.View>
+                    <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle}">
+                        <GridViewColumn x:Name="selectedVehicleHdr" Header="Available Vehicles"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
 
-        <Grid x:Name="specificationGrid" Margin="0,0,42,24" RenderTransformOrigin="0.502,0.314" Background="#FF2B2B2B" HorizontalAlignment="Right" Height="160" Width="348" VerticalAlignment="Bottom">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="32*" />
-                <ColumnDefinition Width="26*" />
-                <ColumnDefinition Width="29*" />
-                <ColumnDefinition Width="29*" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*" />
-                <RowDefinition Height="1*" />
-                <RowDefinition Height="1*" />
-                <RowDefinition Height="1*" />
-                <RowDefinition Height="1*" />
-            </Grid.RowDefinitions>
+            <Grid x:Name="specificationGrid" Margin="0,0,42,24" RenderTransformOrigin="0.502,0.314" Background="#FF2B2B2B" HorizontalAlignment="Right" Height="160" Width="348" VerticalAlignment="Bottom">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="32*" />
+                    <ColumnDefinition Width="26*" />
+                    <ColumnDefinition Width="29*" />
+                    <ColumnDefinition Width="29*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
 
 
-            <Label Foreground="White" Content="Acceleration"/>
-            <Label x:Name="accelerationLbl" Grid.Column="1" Foreground="White" Content="0"/>
-            <Label Grid.Column="2" Foreground="White" Content="Horsepower"/>
-            <Label x:Name="horsepowerLbl" Grid.Column="3" Foreground="White" Content="0"/>
-            <Label Grid.Row="1" Foreground="White" Content="Top Speed"/>
-            <Label x:Name="topspeedLbl" Grid.Column="1" Grid.Row="1" Foreground="White" Content="0"/>
-            <Label Grid.Column="2" Grid.Row="1" Foreground="White" Content="Weight"/>
-            <Label x:Name="weightLbl" Grid.Column="3" Grid.Row="1" Foreground="White" BorderBrush="White" Content="0"/>
-            <Label Grid.Row="2" Foreground="White" Content="Brakeforce"/>
-            <Label x:Name="breakforceLbl" Grid.Column="1" Grid.Row="2" Foreground="White" Content="0"/>
-            <Label Grid.Row="3" Foreground="White" Content="Handling Range"/>
-            <Label x:Name="handlingRangeLbl" Grid.Column="1" Grid.Row="3" Foreground="White" Content="0"/>
-            <Label Grid.Column="2" Grid.Row="2" Foreground="White" Content="Rating"/>
-            <Label x:Name="ratingLbl" Grid.Column="3" Grid.Row="2" Foreground="White" Content="0"/>
-            <Label Grid.Column="2" Grid.Row="3" Foreground="White" Content="Value"/>
-            <Label x:Name="ValueLbl" Grid.Column="3" Grid.Row="3" Foreground="White" Content="0"/>
+                <Label Foreground="White" Content="Acceleration"/>
+                <Label x:Name="accelerationLbl" Grid.Column="1" Foreground="White" Content="0"/>
+                <Label Grid.Column="2" Foreground="White" Content="Horsepower"/>
+                <Label x:Name="horsepowerLbl" Grid.Column="3" Foreground="White" Content="0"/>
+                <Label Grid.Row="1" Foreground="White" Content="Top Speed"/>
+                <Label x:Name="topspeedLbl" Grid.Column="1" Grid.Row="1" Foreground="White" Content="0"/>
+                <Label Grid.Column="2" Grid.Row="1" Foreground="White" Content="Weight"/>
+                <Label x:Name="weightLbl" Grid.Column="3" Grid.Row="1" Foreground="White" BorderBrush="White" Content="0"/>
+                <Label Grid.Row="2" Foreground="White" Content="Brakeforce"/>
+                <Label x:Name="breakforceLbl" Grid.Column="1" Grid.Row="2" Foreground="White" Content="0"/>
+                <Label Grid.Row="3" Foreground="White" Content="Handling Range"/>
+                <Label x:Name="handlingRangeLbl" Grid.Column="1" Grid.Row="3" Foreground="White" Content="0"/>
+                <Label Grid.Column="2" Grid.Row="2" Foreground="White" Content="Rating"/>
+                <Label x:Name="ratingLbl" Grid.Column="3" Grid.Row="2" Foreground="White" Content="0"/>
+                <Label Grid.Column="2" Grid.Row="3" Foreground="White" Content="Value"/>
+                <Label x:Name="ValueLbl" Grid.Column="3" Grid.Row="3" Foreground="White" Content="0"/>
 
-            <Label Grid.Column="0" Grid.Row="4" Foreground="White" Content="External"/>
-            <Label x:Name="extcolorLbl" Grid.Column="1" Grid.Row="5" Foreground="White" Content="#a52a2a"/>
-            <Rectangle Grid.Column="0" Grid.Row="4"  Stroke="Black" Fill="Transparent"/>
-            <Rectangle Grid.Column="1" Grid.Row="4"  Stroke="Black" Fill="Transparent"/>
+                <Label Grid.Column="0" Grid.Row="4" Foreground="White" Content="External"/>
+                <Label x:Name="extcolorLbl" Grid.Column="1" Grid.Row="5" Foreground="White" Content="#a52a2a"/>
+                <Rectangle Grid.Column="0" Grid.Row="4"  Stroke="Black" Fill="Transparent"/>
+                <Rectangle Grid.Column="1" Grid.Row="4"  Stroke="Black" Fill="Transparent"/>
 
-            <Label Grid.Column="2" Grid.Row="4" Foreground="White" Content="Trim"/>
-            <Label x:Name="intcolorLbl" Grid.Column="5" Grid.Row="5" Foreground="White" Content="#d9ffcb"/>
-            <Rectangle Grid.Column="2" Grid.Row="4"  Stroke="Black" Fill="Transparent"/>
-            <Rectangle Grid.Column="5" Grid.Row="4"  Stroke="Black" Fill="Transparent"/>
+                <Label Grid.Column="2" Grid.Row="4" Foreground="White" Content="Trim"/>
+                <Label x:Name="intcolorLbl" Grid.Column="5" Grid.Row="5" Foreground="White" Content="#d9ffcb"/>
+                <Rectangle Grid.Column="2" Grid.Row="4"  Stroke="Black" Fill="Transparent"/>
+                <Rectangle Grid.Column="5" Grid.Row="4"  Stroke="Black" Fill="Transparent"/>
 
-            <Rectangle Grid.Column="0" Grid.Row="0"  Stroke="Black" Fill="Transparent"/>
-            <Rectangle Grid.Column="1" Grid.Row="0"  Stroke="Black" Fill="Transparent"/>
-            <Rectangle Grid.Column="2" Grid.Row="0"  Stroke="Black" Fill="Transparent"/>
-            <Rectangle Grid.Column="3" Grid.Row="0"  Stroke="Black" Fill="Transparent"/>
+                <Rectangle Grid.Column="0" Grid.Row="0"  Stroke="Black" Fill="Transparent"/>
+                <Rectangle Grid.Column="1" Grid.Row="0"  Stroke="Black" Fill="Transparent"/>
+                <Rectangle Grid.Column="2" Grid.Row="0"  Stroke="Black" Fill="Transparent"/>
+                <Rectangle Grid.Column="3" Grid.Row="0"  Stroke="Black" Fill="Transparent"/>
 
-            <Rectangle Grid.Column="0" Grid.Row="1"  Stroke="Black" Fill="Transparent"/>
-            <Rectangle Grid.Column="1" Grid.Row="1"  Stroke="Black" Fill="Transparent"/>
-            <Rectangle Grid.Column="2" Grid.Row="1"  Stroke="Black" Fill="Transparent"/>
-            <Rectangle Grid.Column="3" Grid.Row="1"  Stroke="Black" Fill="Transparent"/>
+                <Rectangle Grid.Column="0" Grid.Row="1"  Stroke="Black" Fill="Transparent"/>
+                <Rectangle Grid.Column="1" Grid.Row="1"  Stroke="Black" Fill="Transparent"/>
+                <Rectangle Grid.Column="2" Grid.Row="1"  Stroke="Black" Fill="Transparent"/>
+                <Rectangle Grid.Column="3" Grid.Row="1"  Stroke="Black" Fill="Transparent"/>
 
-            <Rectangle Grid.Column="0" Grid.Row="2"  Stroke="Black" Fill="Transparent"/>
-            <Rectangle Grid.Column="1" Grid.Row="2"  Stroke="Black" Fill="Transparent"/>
-            <Rectangle Grid.Column="2" Grid.Row="2"  Stroke="Black" Fill="Transparent"/>
-            <Rectangle Grid.Column="3" Grid.Row="2"  Stroke="Black" Fill="Transparent"/>
+                <Rectangle Grid.Column="0" Grid.Row="2"  Stroke="Black" Fill="Transparent"/>
+                <Rectangle Grid.Column="1" Grid.Row="2"  Stroke="Black" Fill="Transparent"/>
+                <Rectangle Grid.Column="2" Grid.Row="2"  Stroke="Black" Fill="Transparent"/>
+                <Rectangle Grid.Column="3" Grid.Row="2"  Stroke="Black" Fill="Transparent"/>
 
-            <Rectangle Grid.Column="0" Grid.Row="3"  Stroke="Black" Fill="Transparent" Grid.ColumnSpan="2" Margin="0,0,77,0"/>
-            <Rectangle Grid.Column="1" Grid.Row="3"  Stroke="Black" Fill="Transparent"/>
-            <Rectangle Grid.Column="2" Grid.Row="3"  Stroke="Black" Fill="Transparent"/>
-            <Rectangle Grid.Column="3" Grid.Row="3"  Stroke="Black" Fill="Transparent"/>
+                <Rectangle Grid.Column="0" Grid.Row="3"  Stroke="Black" Fill="Transparent" Grid.ColumnSpan="2" Margin="0,0,77,0"/>
+                <Rectangle Grid.Column="1" Grid.Row="3"  Stroke="Black" Fill="Transparent"/>
+                <Rectangle Grid.Column="2" Grid.Row="3"  Stroke="Black" Fill="Transparent"/>
+                <Rectangle Grid.Column="3" Grid.Row="3"  Stroke="Black" Fill="Transparent"/>
+            </Grid>
+            <Rectangle HorizontalAlignment="Right" Height="129" Stroke="White" VerticalAlignment="Top" Width="348" Margin="0,70,42,0" Fill="Black"/>
+            <Image x:Name="imageHolder" Height="129" Margin="0,70,42,0" Width="348" Stretch="Fill" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+            <Rectangle HorizontalAlignment="Right" Height="24" Margin="0,0,210,190" Stroke="Black" VerticalAlignment="Bottom" Width="12" Fill="White"/>
+            <Button x:Name="infoboxBtn" Content="Button" HorizontalAlignment="Right" Margin="0,0,200,188" VerticalAlignment="Bottom" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="29" Width="32" Click="infoboxBtn_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/Information-icon.png"/>
+                </Button.Background>
+            </Button>
+
         </Grid>
-        <Rectangle HorizontalAlignment="Right" Height="129" Stroke="White" VerticalAlignment="Top" Width="348" Margin="0,70,42,0" Fill="Black"/>
-        <Image x:Name="imageHolder" Height="129" Margin="0,70,42,0" Width="348" Stretch="Fill" VerticalAlignment="Top" HorizontalAlignment="Right"/>
-        <Rectangle HorizontalAlignment="Right" Height="24" Margin="0,0,210,190" Stroke="Black" VerticalAlignment="Bottom" Width="12" Fill="White"/>
-        <Button x:Name="infoboxBtn" Content="Button" HorizontalAlignment="Right" Margin="0,0,200,188" VerticalAlignment="Bottom" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="29" Width="32" Click="infoboxBtn_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="/Images/Information-icon.png"/>
-            </Button.Background>
-        </Button>
-
-    </Grid>
     </Viewbox>
 </Window>
