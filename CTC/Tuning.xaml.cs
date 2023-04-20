@@ -35,6 +35,7 @@ namespace CTC
         private Boolean isSomethingSelected = false;
         Car car;
         Car modifiedCar;
+        object matchingItem;
 
         internal Tuning(TuningController tuningController, Car car)
         {
@@ -169,7 +170,7 @@ namespace CTC
             //Sets the Content of the ListView
             tuningpartLV.ItemsSource = tuningcontroller.ReadEngine();
 
-            Engine matchingItem = tuningpartLV.Items.Cast<Engine>().FirstOrDefault(x => x.EngineId == car.EngineId);
+            matchingItem = tuningpartLV.Items.Cast<Engine>().FirstOrDefault(x => x.EngineId == car.EngineId);
 
             // Wait for the container elements to be generated
             await Task.Delay(1);
@@ -190,7 +191,7 @@ namespace CTC
             //Sets the Content of the ListView
             tuningpartLV.ItemsSource = tuningcontroller.ReadBumpers();
 
-            Bumper matchingItem = tuningpartLV.Items.Cast<Bumper>().FirstOrDefault(x => x.BumperId == car.BumperId);
+            matchingItem = tuningpartLV.Items.Cast<Bumper>().FirstOrDefault(x => x.BumperId == car.BumperId);
 
             // Wait for the container elements to be generated
             await Task.Delay(1);
@@ -211,7 +212,7 @@ namespace CTC
             //Sets the Content of the ListView
             tuningpartLV.ItemsSource = tuningcontroller.ReadTyre();
 
-            Tyre matchingItem = tuningpartLV.Items.Cast<Tyre>().FirstOrDefault(x => x.TyreId == car.TyreId);
+            matchingItem = tuningpartLV.Items.Cast<Tyre>().FirstOrDefault(x => x.TyreId == car.TyreId);
 
             // Wait for the container elements to be generated
             await Task.Delay(1);
@@ -232,7 +233,7 @@ namespace CTC
             //Sets the Content of the ListView
             tuningpartLV.ItemsSource = tuningcontroller.ReadBreak();
 
-            Break matchingItem = tuningpartLV.Items.Cast<Break>().FirstOrDefault(x => x.BreakId == car.BreakId);
+            matchingItem = tuningpartLV.Items.Cast<Break>().FirstOrDefault(x => x.BreakId == car.BreakId);
 
             // Wait for the container elements to be generated
             await Task.Delay(1);
@@ -253,7 +254,7 @@ namespace CTC
             //Sets the Content of the ListView
             tuningpartLV.ItemsSource = tuningcontroller.ReadRim();
 
-            Rim matchingItem = tuningpartLV.Items.Cast<Rim>().FirstOrDefault(x => x.RimId == car.RimId);
+            matchingItem = tuningpartLV.Items.Cast<Rim>().FirstOrDefault(x => x.RimId == car.RimId);
 
             // Wait for the container elements to be generated
             await Task.Delay(1);
@@ -274,7 +275,7 @@ namespace CTC
             //Sets the Content of the ListView
             tuningpartLV.ItemsSource = tuningcontroller.ReadExhaust();
 
-            Exhaust matchingItem = tuningpartLV.Items.Cast<Exhaust>().FirstOrDefault(x => x.ExhaustId == car.ExhaustId);
+            matchingItem = tuningpartLV.Items.Cast<Exhaust>().FirstOrDefault(x => x.ExhaustId == car.ExhaustId);
 
             // Wait for the container elements to be generated
             await Task.Delay(1);
@@ -295,7 +296,7 @@ namespace CTC
             //Sets the Content of the ListView
             tuningpartLV.ItemsSource = tuningcontroller.ReadNitro();
 
-            Nitro matchingItem = tuningpartLV.Items.Cast<Nitro>().FirstOrDefault(x => x.NitroId == car.NitroId);
+            matchingItem = tuningpartLV.Items.Cast<Nitro>().FirstOrDefault(x => x.NitroId == car.NitroId);
 
             // Wait for the container elements to be generated
             await Task.Delay(1);
@@ -316,7 +317,7 @@ namespace CTC
             //Sets the Content of the ListView
             tuningpartLV.ItemsSource = tuningcontroller.ReadRearSpoiler();
 
-            RearSpoiler matchingItem = tuningpartLV.Items.Cast<RearSpoiler>().FirstOrDefault(x => x.RearSpoilerId == car.RearSpoilerId);
+            matchingItem = tuningpartLV.Items.Cast<RearSpoiler>().FirstOrDefault(x => x.RearSpoilerId == car.RearSpoilerId);
 
             // Wait for the container elements to be generated
             await Task.Delay(1);
@@ -496,9 +497,15 @@ namespace CTC
             try
             {
                 CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(tuningpartLV.ItemsSource);
-                view.SortDescriptions.Clear();
-                view.SortDescriptions.Add(new System.ComponentModel.SortDescription(by, System.ComponentModel.ListSortDirection.Ascending));
+                if(view != null)
+                {
+                    view.SortDescriptions.Clear();
+                    view.SortDescriptions.Add(new System.ComponentModel.SortDescription(by, System.ComponentModel.ListSortDirection.Ascending));
+                    tuningpartLV.UpdateLayout();
 
+                    ListViewItem listViewItem = (ListViewItem)tuningpartLV.ItemContainerGenerator.ContainerFromItem(matchingItem);
+                    listViewItem.Foreground = Brushes.LightGreen;
+                }
             }
             catch(Exception ex)
             {
