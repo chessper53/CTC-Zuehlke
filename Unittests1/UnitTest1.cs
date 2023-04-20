@@ -54,10 +54,39 @@ namespace Unittests1
             car.Nitro.Price = 10;
 
             double expectedResult = car.Value + car.Engine.Price + car.Exhaust.Price + car.Bumper.Price + car.RearSpoiler.Price + car.Rim.Price + car.Tyre.Price + car.Break.Price + car.Nitro.Price;
-
-            Console.WriteLine(car.Value);
             //Act
             double actualResult = car.GetCalcValue();
+            bool result = Math.Abs(actualResult - expectedResult) < 0.01;
+
+            //Assert
+            Assert.IsTrue(result);
+        }
+        [TestMethod]
+        public void CalculationRating_ValueFromCarPlusAllPartsEqualsSum_GetCalcRating()
+        {
+            //Arrange
+            Car car = new Car();
+            car.Engine = new Engine();
+            car.Exhaust = new Exhaust();
+            car.Bumper = new Bumper();
+            car.RearSpoiler = new RearSpoiler();
+            car.Rim = new Rim();
+            car.Tyre = new Tyre();
+            car.Break = new Break();
+            car.Nitro = new Nitro();
+
+            car.Engine.ImpactRating = 10;
+            car.Exhaust.ImpactRating = 10;
+            car.Bumper.ImpactRating = 10;
+            car.RearSpoiler.ImpactRating = 10;
+            car.Rim.ImpactRating = 10;
+            car.Tyre.ImpactRating = 10;
+            car.Break.ImpactRating = 10;
+            car.Nitro.ImpactRating = 10;
+
+            double expectedResult = car.Rating + car.Engine.ImpactRating + car.Exhaust.ImpactRating + car.Bumper.ImpactRating + car.RearSpoiler.ImpactRating + car.Rim.ImpactRating + car.Tyre.ImpactRating + car.Break.ImpactRating + car.Nitro.ImpactRating;
+            //Act
+            double actualResult = car.GetCalcRating();
             bool result = Math.Abs(actualResult - expectedResult) < 0.01;
 
             //Assert
