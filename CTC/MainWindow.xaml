@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CTC"
         mc:Ignorable="d"
-        Title="Garage" Height="459" Width="1094" MinHeight="459" MinWidth="1094">
+        Title="Garage" Height="459" Width="1094" MinHeight="459" MinWidth="1094" Background="#FF0C1E9A">
 
     <Window.Resources>
         <Style x:Key="ListViewItemStyle" TargetType="{x:Type ListViewItem}">
@@ -49,8 +49,8 @@
             <Setter Property="FontSize" Value="12" />
         </Style>
     </Window.Resources>
-
-    <Grid Background="#FF0C1E9A">
+    <Viewbox MinHeight="459" MinWidth="1094" Stretch="Uniform" UseLayoutRounding="True" SnapsToDevicePixels="True" Margin="0,0,0,-6" >
+    <Grid Background="#FF0C1E9A" Height="470" Width="1147">
         <Rectangle Width="426" Margin="398,33,270,26">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/tyrestack.png" Stretch="Uniform"/>
@@ -152,4 +152,5 @@
         </Button>
 
     </Grid>
+    </Viewbox>
 </Window>
