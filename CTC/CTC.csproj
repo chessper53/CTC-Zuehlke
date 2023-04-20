@@ -30,6 +30,15 @@
 
     <None Remove="Images\car3.jpg" />
 
+
+    <None Remove="Images\car4.jpg" />
+
+
+    <None Remove="Images\car5.jpg" />
+
+
+    <None Remove="Images\car6.jpg" />
+
     <None Remove="Images\car_blueprint.png" />
 
     <None Remove="Images\car_icon.ico" />
@@ -50,6 +59,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\car3.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\car4.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\car5.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\car6.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\car_blueprint.png">

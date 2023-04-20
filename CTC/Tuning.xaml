@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CTC"
         mc:Ignorable="d"
-        ResizeMode="NoResize"
-        Title="Tuning" Height="459" Width="1153">
+        Title="Tuning" Height="459" Width="1153" Background="#FF292929">
 
     <Window.Resources>
         <Style x:Key="GridViewColumnHeaderStyle" TargetType="{x:Type GridViewColumnHeader}">
@@ -116,179 +115,185 @@
         </Style>
 
     </Window.Resources>
-    <Grid Background="#FF0C1E9A" Margin="0,0,0,-16">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="0*"/>
-            <ColumnDefinition Width="0*"/>
-        </Grid.ColumnDefinitions>
-        <Rectangle Stroke="Black" Width="482" Fill="#FF2B2B2B" HorizontalAlignment="Left"/>
-        <Rectangle HorizontalAlignment="Left" Height="299" Margin="503,0,0,0" VerticalAlignment="Center" Width="615">
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="/car_blueprint.png"/>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="51" Margin="10,10,0,0" VerticalAlignment="Top" Width="460" Fill="#FF2B2B2B"/>
-        <Label Content="Tuning" HorizontalAlignment="Left" Margin="186,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Width="84" Height="42"/>
+    <Viewbox MinHeight="459" MinWidth="1094" Stretch="Uniform" UseLayoutRounding="True" SnapsToDevicePixels="True" Margin="0,0,0,-6" OpacityMask="#FF1F1E1E" >
+        <Grid Background="#FF0C1E9A" Height="439">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="141*"/>
+                <ColumnDefinition Width="344*"/>
+                <ColumnDefinition Width="74*"/>
+                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition Width="0*"/>
+            </Grid.ColumnDefinitions>
+            <Rectangle Width="482" Fill="#FF2B2B2B" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
+            <Rectangle HorizontalAlignment="Left" Height="299" Margin="221,0,0,0" VerticalAlignment="Center" Width="615" Grid.ColumnSpan="2" Grid.Column="1">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/car_blueprint.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle HorizontalAlignment="Left" Height="51" Margin="10,10,0,0" VerticalAlignment="Top" Width="460" Fill="#FF2B2B2B" Grid.ColumnSpan="2"/>
+            <Label Content="Tuning" HorizontalAlignment="Left" Margin="186,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Width="84" Height="42"/>
 
-        <ListView x:Name="tuningpartLV" Margin="10,61,0,232" BorderThickness="2" Background="{x:Null}" BorderBrush="#FFFFE7E7" Foreground="white" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="tuningpartLV_SelectionChanged" HorizontalAlignment="Left" Width="460" GridViewColumnHeader.Click="Header_Click">
-            <ListView.ItemContainerStyle>
-                <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource ListViewItemStyle}" />
-            </ListView.ItemContainerStyle>
-            <ListView.View>
-                <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle}">
-                    <GridViewColumn x:Name="selectedPartHdr" Header="Tuning Part" Width="370" DisplayMemberBinding="{Binding Type}"/>
-                    <GridViewColumn x:Name="selectedPartPrice" Header="Price" DisplayMemberBinding="{Binding Price}"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+            <ListView x:Name="tuningpartLV" Margin="10,61,0,232" BorderThickness="2" Background="{x:Null}" BorderBrush="#FFFFE7E7" Foreground="white" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="tuningpartLV_SelectionChanged" HorizontalAlignment="Left" Width="460" GridViewColumnHeader.Click="Header_Click" Grid.ColumnSpan="2">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource ListViewItemStyle}" />
+                </ListView.ItemContainerStyle>
+                <ListView.View>
+                    <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle}">
+                        <GridViewColumn x:Name="selectedPartHdr" Header="Tuning Part" Width="370" DisplayMemberBinding="{Binding Type}"/>
+                        <GridViewColumn x:Name="selectedPartPrice" Header="Price" DisplayMemberBinding="{Binding Price}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
 
-        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" Margin="10,236,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Width="460">
-            <Grid x:Name="specificationGridTune" Margin="0,0,679,48" RenderTransformOrigin="0.502,0.314" Background="#FF2B2B2B" Height="208" Width="460">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="177" />
-                    <ColumnDefinition Width="83" />
-                    <ColumnDefinition Width="92" />
-                    <ColumnDefinition Width="108" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30" />
-                    <RowDefinition Height="30" />
-                    <RowDefinition Height="30" />
-                    <RowDefinition Height="30" />
-                    <RowDefinition Height="30" />
-                    <RowDefinition Height="30" />
-                    <RowDefinition Height="30" />
-                    <RowDefinition Height="30" />
-                    <RowDefinition Height="30" />
-                </Grid.RowDefinitions>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" Margin="10,236,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="170" Width="460" Grid.ColumnSpan="2">
+                <Grid x:Name="specificationGridTune" Margin="0,0,679,48" RenderTransformOrigin="0.502,0.314" Background="#FF2B2B2B" Height="208" Width="460">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="177" />
+                        <ColumnDefinition Width="83" />
+                        <ColumnDefinition Width="92" />
+                        <ColumnDefinition Width="108" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                    </Grid.RowDefinitions>
 
-                <Label Grid.Row="0" Foreground="White" >Acceleration</Label>
-                <Label Grid.Row="1" Foreground="White">Top Speed</Label>
-                <Label Grid.Row="2" Foreground="White">Brakeforce</Label>
-                <Label Grid.Row="3" Foreground="White">Handling Range</Label>
-                <Label Grid.Row="4" Foreground="White">Horsepower</Label>
-                <Label Grid.Row="5" Foreground="White">Weight</Label>
-                <Label Grid.Row="6" Foreground="White">Rating</Label>
-                <Label Grid.Row="7" Foreground="White">Value</Label>
+                    <Label Grid.Row="0" Foreground="White" >Acceleration</Label>
+                    <Label Grid.Row="1" Foreground="White">Top Speed</Label>
+                    <Label Grid.Row="2" Foreground="White">Brakeforce</Label>
+                    <Label Grid.Row="3" Foreground="White">Handling Range</Label>
+                    <Label Grid.Row="4" Foreground="White">Horsepower</Label>
+                    <Label Grid.Row="5" Foreground="White">Weight</Label>
+                    <Label Grid.Row="6" Foreground="White">Rating</Label>
+                    <Label Grid.Row="7" Foreground="White">Value</Label>
 
-                <Label x:Name="oldAcceleratonLbl" Grid.Row="0" Grid.Column="1" Foreground="White" HorizontalContentAlignment="Center">0</Label>
-                <Label x:Name="newAcceleratonLbl" Grid.Row="0" Grid.Column="2" Foreground="White" HorizontalContentAlignment="Center">23</Label>
-                <Label x:Name="acceleratonLbl" Grid.Row="0" Grid.Column="3" Foreground="White" HorizontalContentAlignment="Center">0</Label>
+                    <Label x:Name="oldAcceleratonLbl" Grid.Row="0" Grid.Column="1" Foreground="White" HorizontalContentAlignment="Center">0</Label>
+                    <Label x:Name="newAcceleratonLbl" Grid.Row="0" Grid.Column="2" Foreground="White" HorizontalContentAlignment="Center">23</Label>
+                    <Label x:Name="acceleratonLbl" Grid.Row="0" Grid.Column="3" Foreground="White" HorizontalContentAlignment="Center">0</Label>
 
-                <Label x:Name="oldTopSpeedLbl" Grid.Row="1" Grid.Column="1" Foreground="White" HorizontalContentAlignment="Center">0</Label>
-                <Label x:Name="newTopSpeedLbl" Grid.Row="1" Grid.Column="2" Foreground="White" HorizontalContentAlignment="Center">-2</Label>
-                <Label x:Name="topSpeedLbl" Grid.Row="1" Grid.Column="3" Foreground="White" HorizontalContentAlignment="Center">0</Label>
+                    <Label x:Name="oldTopSpeedLbl" Grid.Row="1" Grid.Column="1" Foreground="White" HorizontalContentAlignment="Center">0</Label>
+                    <Label x:Name="newTopSpeedLbl" Grid.Row="1" Grid.Column="2" Foreground="White" HorizontalContentAlignment="Center">-2</Label>
+                    <Label x:Name="topSpeedLbl" Grid.Row="1" Grid.Column="3" Foreground="White" HorizontalContentAlignment="Center">0</Label>
 
-                <Label x:Name="oldBrakeForceLbl" Grid.Row="2" Grid.Column="1" Foreground="White" HorizontalContentAlignment="Center">0</Label>
-                <Label x:Name="newBrakeForceLbl" Grid.Row="2" Grid.Column="2" Foreground="White" HorizontalContentAlignment="Center">4</Label>
-                <Label x:Name="brakeForceLbl" Grid.Row="2" Grid.Column="3" Foreground="White" HorizontalContentAlignment="Center">0</Label>
+                    <Label x:Name="oldBrakeForceLbl" Grid.Row="2" Grid.Column="1" Foreground="White" HorizontalContentAlignment="Center">0</Label>
+                    <Label x:Name="newBrakeForceLbl" Grid.Row="2" Grid.Column="2" Foreground="White" HorizontalContentAlignment="Center">4</Label>
+                    <Label x:Name="brakeForceLbl" Grid.Row="2" Grid.Column="3" Foreground="White" HorizontalContentAlignment="Center">0</Label>
 
-                <Label x:Name="oldHandlingRangeLbl" Grid.Row="3" Grid.Column="1" Foreground="White" HorizontalContentAlignment="Center">0</Label>
-                <Label x:Name="newHandlingRangeLbl" Grid.Row="3" Grid.Column="2" Foreground="White" HorizontalContentAlignment="Center">76</Label>
-                <Label x:Name="handlingRangeLbl" Grid.Row="3" Grid.Column="3" Foreground="White" HorizontalContentAlignment="Center">0</Label>
+                    <Label x:Name="oldHandlingRangeLbl" Grid.Row="3" Grid.Column="1" Foreground="White" HorizontalContentAlignment="Center">0</Label>
+                    <Label x:Name="newHandlingRangeLbl" Grid.Row="3" Grid.Column="2" Foreground="White" HorizontalContentAlignment="Center">76</Label>
+                    <Label x:Name="handlingRangeLbl" Grid.Row="3" Grid.Column="3" Foreground="White" HorizontalContentAlignment="Center">0</Label>
 
-                <Label x:Name="oldHorsePowerLbl" Grid.Row="4" Grid.Column="1" Foreground="White" HorizontalContentAlignment="Center">0</Label>
-                <Label x:Name="newHorsePowerLbl" Grid.Row="4" Grid.Column="2" Foreground="White" HorizontalContentAlignment="Center">-5</Label>
-                <Label x:Name="horsePowerLbl" Grid.Row="4" Grid.Column="3" Foreground="White" HorizontalContentAlignment="Center">0</Label>
+                    <Label x:Name="oldHorsePowerLbl" Grid.Row="4" Grid.Column="1" Foreground="White" HorizontalContentAlignment="Center">0</Label>
+                    <Label x:Name="newHorsePowerLbl" Grid.Row="4" Grid.Column="2" Foreground="White" HorizontalContentAlignment="Center">-5</Label>
+                    <Label x:Name="horsePowerLbl" Grid.Row="4" Grid.Column="3" Foreground="White" HorizontalContentAlignment="Center">0</Label>
 
-                <Label x:Name="oldWeightLbl" Grid.Row="5" Grid.Column="1" Foreground="White" HorizontalContentAlignment="Center">0</Label>
-                <Label x:Name="newWeightLbl" Grid.Row="5" Grid.Column="2" Foreground="White" HorizontalContentAlignment="Center">6</Label>
-                <Label x:Name="weightLbl" Grid.Row="5" Grid.Column="3" Foreground="White" HorizontalContentAlignment="Center">0</Label>
+                    <Label x:Name="oldWeightLbl" Grid.Row="5" Grid.Column="1" Foreground="White" HorizontalContentAlignment="Center">0</Label>
+                    <Label x:Name="newWeightLbl" Grid.Row="5" Grid.Column="2" Foreground="White" HorizontalContentAlignment="Center">6</Label>
+                    <Label x:Name="weightLbl" Grid.Row="5" Grid.Column="3" Foreground="White" HorizontalContentAlignment="Center">0</Label>
 
-                <Label x:Name="oldRatingLbl" Grid.Row="6" Grid.Column="1" Foreground="White" HorizontalContentAlignment="Center">0</Label>
-                <Label x:Name="newRatingLbl" Grid.Row="6" Grid.Column="2" Foreground="White" HorizontalContentAlignment="Center">19</Label>
-                <Label x:Name="ratingLbl" Grid.Row="6" Grid.Column="3" Foreground="White" HorizontalContentAlignment="Center">0</Label>
+                    <Label x:Name="oldRatingLbl" Grid.Row="6" Grid.Column="1" Foreground="White" HorizontalContentAlignment="Center">0</Label>
+                    <Label x:Name="newRatingLbl" Grid.Row="6" Grid.Column="2" Foreground="White" HorizontalContentAlignment="Center">19</Label>
+                    <Label x:Name="ratingLbl" Grid.Row="6" Grid.Column="3" Foreground="White" HorizontalContentAlignment="Center">0</Label>
 
-                <Label x:Name="oldValueLbl" Grid.Row="7" Grid.Column="1" Foreground="White" HorizontalContentAlignment="Center">0</Label>
-                <Label x:Name="newoldValueLbl" Grid.Row="7" Grid.Column="2" Foreground="White" HorizontalContentAlignment="Center">-3</Label>
-                <Label x:Name="valueLbl" Grid.Row="7" Grid.Column="3" Foreground="White" HorizontalContentAlignment="Center">0</Label>
-
-
-            </Grid>
-        </ScrollViewer>
-        <Rectangle HorizontalAlignment="Left" Height="25" Margin="10,211,0,0" Stroke="Black" VerticalAlignment="Top" Width="176" Fill="#FF2B2B2B"/>
-        <Label Content="Specifications" HorizontalAlignment="Left" Margin="59,211,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Rectangle HorizontalAlignment="Left" Height="25" Margin="186,211,0,0" Stroke="Black" VerticalAlignment="Top" Width="83" Fill="#FF2B2B2B"/>
-        <Rectangle HorizontalAlignment="Left" Height="25" Margin="269,211,0,0" Stroke="Black" VerticalAlignment="Top" Width="92" Fill="#FF2B2B2B"/>
-        <Rectangle HorizontalAlignment="Left" Height="25" Margin="361,211,0,0" Stroke="Black" VerticalAlignment="Top" Width="109" Fill="#FF2B2B2B"/>
-        <Label Content="Old" HorizontalAlignment="Left" Margin="213,211,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Label Content="New" HorizontalAlignment="Left" Margin="298,211,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Label Content="Overall" HorizontalAlignment="Left" Margin="392,211,0,0" VerticalAlignment="Top" Foreground="White"/>
-
-        <Button x:Name="engineBtn" Content="Engine" Click="engineBtn_Click" Style="{StaticResource ButtonStyle}" VerticalAlignment="Top" Margin="491,106,0,0" HorizontalAlignment="Left" Height="46" Width="111">
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-
-        <Button x:Name="bumperBtn" Content="Bumper" Click="bumperBtn_Click" Style="{StaticResource ButtonStyle}" VerticalAlignment="Top" Margin="482,302,0,0" HorizontalAlignment="Left" Height="46" Width="111">
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="tyreBtn" Content="Tyre" Click="tyreBtn_Click" Style="{StaticResource ButtonStyle}" VerticalAlignment="Top" Margin="644,302,0,0" HorizontalAlignment="Left" Height="46" Width="111">
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="brakesBtn" Content="Brakes" Click="brakesBtn_Click" Style="{StaticResource ButtonStyle}" VerticalAlignment="Top" Margin="846,310,0,0" HorizontalAlignment="Left" Height="46" Width="111">
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="rimBtn" Content="Rim" Click="rimBtn_Click" Style="{StaticResource ButtonStyle}" VerticalAlignment="Top" Margin="1010,318,0,0" HorizontalAlignment="Left" Height="30" Width="62">
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="10"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="exhaustBtn" Content="Exhaust" Click="exhaustBtn_Click" Style="{StaticResource ButtonStyle}" VerticalAlignment="Top" Margin="1048,292,0,0" HorizontalAlignment="Left" Height="31" Width="79">
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="10"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="nitroBtn" Content="Nitro" Click="nitroBtn_Click" Style="{StaticResource ButtonStyle}" VerticalAlignment="Top" Margin="607,111,0,0" HorizontalAlignment="Left" Height="46" Width="111">
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="10"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="spoilerBtn" Content="Spoiler" Click="spoilerBtn_Click" Style="{StaticResource ButtonStyle}" VerticalAlignment="Top" Margin="998,88,0,0" HorizontalAlignment="Left" Height="46" Width="111">
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="10"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Rectangle HorizontalAlignment="Left" Height="175" Margin="10,211,0,0" Stroke="Black" VerticalAlignment="Top" Width="460"/>
-        <Button x:Name="backBtn" Content="Back" Margin="10,0,0,33" VerticalAlignment="Bottom" Height="21" Width="108" Background="#FF2B2B2B" Foreground="White" Click="backBtn_Click" HorizontalAlignment="Left"/>
-        <Button x:Name="purchaseBtn" Content="Purchase" Margin="118,0,0,33" VerticalAlignment="Bottom" Height="21" Width="352" Background="#FF2B2B2B" Foreground="White" Click="purchaseBtn_Click" HorizontalAlignment="Left"/>
-        <Rectangle Height="33" Margin="0,0,671,0" VerticalAlignment="Bottom" Fill="#FF2B2B2B"/>
-
-        <Label x:Name="exteriorLbl" Foreground="White" HorizontalContentAlignment="Center" FontSize="9" HorizontalAlignment="Left" Margin="842,5,0,0" VerticalAlignment="Top">Exterior</Label>
-        <Label x:Name="interiorLbl" Foreground="White" HorizontalContentAlignment="Center" Margin="790,5,0,0" FontSize="9" HorizontalAlignment="Left" Width="46" VerticalAlignment="Top" >Interior</Label>
-        <Button x:Name="interiorBtn" Content="" HorizontalAlignment="Left" Margin="790,27,0,0" VerticalAlignment="Top" Width="46" BorderBrush="Black" Background="White" Click="interiorBtn_Click"/>
-        <Button x:Name="exteriorBtn" Content="" HorizontalAlignment="Left" Margin="838,27,0,0" VerticalAlignment="Top" Width="46" BorderBrush="Black" Background="Black" Click="exteriorBtn_Click"/>
-        <Rectangle HorizontalAlignment="Left" Height="24" Margin="438,23,0,0" Stroke="Black" VerticalAlignment="Top" Width="12" Fill="White"/>
-        <Button x:Name="infoboxBtn" Content="Button" HorizontalAlignment="Left" Margin="428,20,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="29" Width="32" Click="infoboxBtn_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="/Images/Information-icon.png"/>
-            </Button.Background>
-        </Button>
+                    <Label x:Name="oldValueLbl" Grid.Row="7" Grid.Column="1" Foreground="White" HorizontalContentAlignment="Center">0</Label>
+                    <Label x:Name="newoldValueLbl" Grid.Row="7" Grid.Column="2" Foreground="White" HorizontalContentAlignment="Center">-3</Label>
+                    <Label x:Name="valueLbl" Grid.Row="7" Grid.Column="3" Foreground="White" HorizontalContentAlignment="Center">0</Label>
 
 
-    </Grid>
+                </Grid>
+            </ScrollViewer>
+            <Rectangle HorizontalAlignment="Left" Height="25" Margin="10,211,0,0" Stroke="Black" VerticalAlignment="Top" Width="176" Fill="#FF2B2B2B"/>
+            <Label Content="Specifications" HorizontalAlignment="Left" Margin="59,211,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <Rectangle HorizontalAlignment="Left" Height="25" Margin="186,211,0,0" Stroke="Black" VerticalAlignment="Top" Width="83" Fill="#FF2B2B2B"/>
+            <Rectangle HorizontalAlignment="Left" Height="25" Margin="269,211,0,0" Stroke="Black" VerticalAlignment="Top" Width="92" Fill="#FF2B2B2B" Grid.ColumnSpan="2"/>
+            <Rectangle HorizontalAlignment="Left" Height="25" Margin="79,211,0,0" Stroke="Black" VerticalAlignment="Top" Width="109" Fill="#FF2B2B2B" Grid.Column="1"/>
+            <Label Content="Old" HorizontalAlignment="Left" Margin="213,211,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <Label Content="New" HorizontalAlignment="Left" Margin="16,211,0,0" VerticalAlignment="Top" Foreground="White" Grid.Column="1"/>
+            <Label Content="Overall" HorizontalAlignment="Left" Margin="110,211,0,0" VerticalAlignment="Top" Foreground="White" Grid.Column="1"/>
+
+            <Button x:Name="engineBtn" Content="Engine" Click="engineBtn_Click" Style="{StaticResource ButtonStyle}" VerticalAlignment="Top" Margin="209,106,0,0" HorizontalAlignment="Left" Height="46" Width="111" Grid.Column="1">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button x:Name="bumperBtn" Content="Bumper" Click="bumperBtn_Click" Style="{StaticResource ButtonStyle}" VerticalAlignment="Top" Margin="200,302,0,0" HorizontalAlignment="Left" Height="46" Width="111" Grid.Column="1">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="tyreBtn" Content="Tyre" Click="tyreBtn_Click" Style="{StaticResource ButtonStyle}" VerticalAlignment="Top" Margin="362,302,0,0" HorizontalAlignment="Left" Height="46" Width="111" Grid.Column="1">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="brakesBtn" Content="Brakes" Click="brakesBtn_Click" Style="{StaticResource ButtonStyle}" VerticalAlignment="Top" Margin="564,310,0,0" HorizontalAlignment="Left" Height="46" Width="111" Grid.Column="1">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="rimBtn" Content="Rim" Click="rimBtn_Click" Style="{StaticResource ButtonStyle}" VerticalAlignment="Top" Margin="18,318,0,0" HorizontalAlignment="Left" Height="30" Width="62" Grid.Column="2">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="10"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="exhaustBtn" Content="Exhaust" Click="exhaustBtn_Click" Style="{StaticResource ButtonStyle}" VerticalAlignment="Top" Margin="56,292,0,0" HorizontalAlignment="Left" Height="31" Width="79" Grid.Column="2">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="10"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="nitroBtn" Content="Nitro" Click="nitroBtn_Click" Style="{StaticResource ButtonStyle}" VerticalAlignment="Top" Margin="325,111,0,0" HorizontalAlignment="Left" Height="46" Width="111" Grid.Column="1">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="10"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="spoilerBtn" Content="Spoiler" Click="spoilerBtn_Click" Style="{StaticResource ButtonStyle}" VerticalAlignment="Top" Margin="6,88,0,0" HorizontalAlignment="Left" Height="46" Width="111" Grid.Column="2">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="10"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Rectangle HorizontalAlignment="Left" Height="174" Margin="10,211,0,0" Stroke="Black" VerticalAlignment="Top" Width="460" Grid.ColumnSpan="2"/>
+            <Button x:Name="backBtn" Content="Back" Margin="10,0,0,33" VerticalAlignment="Bottom" Height="21" Width="108" Background="#FF2B2B2B" Foreground="White" Click="backBtn_Click" HorizontalAlignment="Left"/>
+            <Button x:Name="purchaseBtn" Content="Purchase" Margin="118,0,0,33" VerticalAlignment="Bottom" Height="21" Width="352" Background="#FF2B2B2B" Foreground="White" Click="purchaseBtn_Click" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
+            <Rectangle Height="33" Margin="0,0,536,0" VerticalAlignment="Bottom" Fill="#FF2B2B2B" Grid.ColumnSpan="2"/>
+
+            <Label x:Name="exteriorLbl" Foreground="White" HorizontalContentAlignment="Center" FontSize="9" HorizontalAlignment="Left" Margin="560,5,0,0" VerticalAlignment="Top" Grid.Column="1">Exterior</Label>
+            <Label x:Name="interiorLbl" Foreground="White" HorizontalContentAlignment="Center" Margin="508,5,0,0" FontSize="9" HorizontalAlignment="Left" Width="46" VerticalAlignment="Top" Grid.Column="1" >Interior</Label>
+            <Button x:Name="interiorBtn" Content="" HorizontalAlignment="Left" Margin="508,27,0,0" VerticalAlignment="Top" Width="46" BorderBrush="Black" Background="White" Click="interiorBtn_Click" Grid.Column="1"/>
+            <Button x:Name="exteriorBtn" Content="" HorizontalAlignment="Left" Margin="556,27,0,0" VerticalAlignment="Top" Width="46" BorderBrush="Black" Background="Black" Click="exteriorBtn_Click" Grid.Column="1"/>
+            <Rectangle HorizontalAlignment="Left" Height="24" Margin="156,23,0,0" Stroke="Black" VerticalAlignment="Top" Width="12" Fill="White" Grid.Column="1"/>
+            <Button x:Name="infoboxBtn" Content="Button" HorizontalAlignment="Left" Margin="146,20,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="29" Width="32" Click="infoboxBtn_Click" Grid.Column="1">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/Information-icon.png"/>
+                </Button.Background>
+            </Button>
+            <Rectangle HorizontalAlignment="Left" Height="439" Margin="212,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="624" Grid.Column="1" Grid.ColumnSpan="2" />
+
+
+
+        </Grid>
+    </Viewbox>
 </Window>
