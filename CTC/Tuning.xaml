@@ -247,7 +247,7 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Button x:Name="rimBtn" Content="Rim" Click="rimBtn_Click" Style="{StaticResource ButtonStyle}" VerticalAlignment="Top" Margin="18,318,0,0" HorizontalAlignment="Left" Height="30" Width="62" Grid.Column="2">
+            <Button x:Name="rimBtn" Content="Rim" Click="rimBtn_Click" Style="{StaticResource ButtonStyle}" VerticalAlignment="Top" Margin="0,321,0,0" HorizontalAlignment="Center" Height="30" Width="62" Grid.Column="2">
                 <Button.Template>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="10"/>

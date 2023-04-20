@@ -397,9 +397,7 @@ namespace CTC
         private void interiorBtn_Click(object sender, RoutedEventArgs e)
         {
             string colourHexInterior = "";
-            while (string.IsNullOrEmpty(colourHexInterior))
-            {
-                colourHexInterior = Microsoft.VisualBasic.Interaction.InputBox("Please enter the desired colour (HEX):", "Colour", "");
+            colourHexInterior = Microsoft.VisualBasic.Interaction.InputBox("Please enter the desired colour (HEX):", "Colour", "");
 
                 try
                 {
@@ -410,15 +408,13 @@ namespace CTC
                 {
 
                 }
-            }
+            
         }
 
         private void exteriorBtn_Click(object sender, RoutedEventArgs e)
         {
             string colourHexExterior = "";
-            while (string.IsNullOrEmpty(colourHexExterior))
-            {
-                colourHexExterior = Microsoft.VisualBasic.Interaction.InputBox("Please enter the desired colour (HEX):", "Colour", "");
+            colourHexExterior = Microsoft.VisualBasic.Interaction.InputBox("Please enter the desired colour (HEX):", "Colour", "");
                 try
                 {
                     exteriorBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(colourHexExterior));
@@ -428,7 +424,6 @@ namespace CTC
                 {
 
                 }
-            }
         }
 
         private void infoboxBtn_Click(object sender, RoutedEventArgs e)
