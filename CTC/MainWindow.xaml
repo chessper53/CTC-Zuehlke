@@ -145,7 +145,7 @@
                 <Rectangle Grid.Column="3" Grid.Row="3"  Stroke="Black" Fill="Transparent"/>
             </Grid>
             <Rectangle HorizontalAlignment="Right" Height="129" Stroke="White" VerticalAlignment="Top" Width="348" Margin="0,70,42,0" Fill="Black"/>
-            <Image x:Name="imageHolder" Height="129" Margin="0,70,42,0" Width="348" Stretch="Fill" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+            <Image x:Name="imageHolder" Height="129" Margin="0,70,42,0" Width="348" Stretch="Fill" VerticalAlignment="Top" HorizontalAlignment="Right" />
             <Rectangle HorizontalAlignment="Right" Height="24" Margin="0,0,210,190" Stroke="Black" VerticalAlignment="Bottom" Width="12" Fill="White"/>
             <Button x:Name="infoboxBtn" Content="Button" HorizontalAlignment="Right" Margin="0,0,200,188" VerticalAlignment="Bottom" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="29" Width="32" Click="infoboxBtn_Click">
                 <Button.Background>
