@@ -31,8 +31,6 @@ namespace CTC
     public partial class Tuning : Window
     {
         private TuningController tuningcontroller;
-        private ObservableCollection<string> items;
-        private Boolean isSomethingSelected = false;
         Car car;
         Car modifiedCar;
         object matchingItem;
@@ -47,7 +45,6 @@ namespace CTC
             Uri iconUri = new Uri(iconPath);
             this.Icon = BitmapFrame.Create(iconUri);
 
-
             tuningcontroller = tuningController;
             this.car = car;
             modifiedCar = car;
@@ -59,7 +56,7 @@ namespace CTC
 
         private void purchaseBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (isSomethingSelected)
+            if (tuningpartLV.SelectedItem!=null && tuningpartLV.SelectedItem != matchingItem)
             {
                 //buy the tuning part
                 tuningcontroller.UpdateCar(modifiedCar);
@@ -70,21 +67,22 @@ namespace CTC
                 // Changes the Header of tuningpartLV to its new content
                 var column = tuningpartLV.FindName("selectedPartHdr") as GridViewColumn;
                 column.Header = "Tuning Parts";
-                tuningpartLV.ItemsSource = null;
 
                 //Shows the Purchase Confirmation
-                MessageBox.Show("Purchase Successful");
-                isSomethingSelected = false;
+                TuningPart part = (TuningPart)tuningpartLV.SelectedItem;
+                double moneySpent = part.Price;
+                MessageBox.Show($"Purchase Successful - {moneySpent} DKK spent");
+
+                tuningpartLV.ItemsSource = null;
             }
             else
             {
-                MessageBox.Show("Please select something to buy!");
+                MessageBox.Show("Please select a tuning part which is not already attached to the car!");
             }
         }
 
         private void tuningpartLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            isSomethingSelected = true;
             if (tuningpartLV.SelectedItem != null)
             {
                 modifiedCar = (Car)car.Clone();
