@@ -41,6 +41,7 @@ namespace CTC
         public Engine Engine { get; set; }
         public int BreakId { get; set; }
         public Break Break { get; set; }
+        public bool Electric { get; set; }
 
 
         public int GetCalcPowerInH()

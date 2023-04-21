@@ -56,13 +56,16 @@ namespace CTC
 
         private void purchaseBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (tuningpartLV.SelectedItem!=null && tuningpartLV.SelectedItem != matchingItem)
+            if (modifiedCar.ExhaustId == null && car.Electric == false)
+            {
+                MessageBox.Show("You can't remove the Exhaust from a non-electric car!");
+            }
+            else if(tuningpartLV.SelectedItem != null && tuningpartLV.SelectedItem != matchingItem)
             {
                 //buy the tuning part
                 tuningcontroller.UpdateCar(modifiedCar);
                 car = (Car)modifiedCar.Clone();
                 clearStats();
-
 
                 // Changes the Header of tuningpartLV to its new content
                 var column = tuningpartLV.FindName("selectedPartHdr") as GridViewColumn;
@@ -429,7 +432,9 @@ namespace CTC
         private void infoboxBtn_Click(object sender, RoutedEventArgs e)
         {
             string attachedNitro = "";
+            string attachedEngine = "";
             string currentNitro = "";
+            //Manage selected nitro information
             if (tuningpartLV.SelectedItem != null && tuningpartLV.SelectedItem.GetType().Name.Equals("Nitro"))
             {
                 if(modifiedCar.NitroId != null)
@@ -455,6 +460,7 @@ namespace CTC
                 currentNitro = "No Nirto is Selected!";
             }
 
+            //Manage attached nitro information
             if(car.Nitro != null)
             {
                 //Nitro is Selected and is set
@@ -470,19 +476,28 @@ namespace CTC
             {
                 attachedNitro = "No Nirto is attached!";
             }
-            MessageBox.Show("Acceleration: Time needed to go from 0-100 km/h" + Environment.NewLine +
+
+            //Manage engine information
+            if(tuningpartLV.SelectedItem != null && tuningpartLV.SelectedItem.GetType().Name.Equals("Engine"))
+            {
+                attachedEngine = "Selected Engine: Is powered by " + car.Engine.Fuel;
+            }
+            else
+            {
+                attachedEngine = "No Engine is selected";
+            }
+
+            MessageBox.Show("Acceleration: Constant acceleration in m/s² " + Environment.NewLine +
             "Topspeed: Km/h" + Environment.NewLine +
             "Brakeforce: Brakeforce in Newton" + Environment.NewLine +
             "Handling Range: The Handling rated on a scale of 0-50" + Environment.NewLine +
             "Horsepower: PS" + Environment.NewLine +
             "Weight: Kg" + Environment.NewLine +
             "Value: In DKK" + Environment.NewLine + Environment.NewLine +
+            "Attached Engine: Is powered by " + car.Engine.Fuel + Environment.NewLine +
+            attachedEngine + Environment.NewLine + Environment.NewLine +
             "Nitro is an ingame Consumable!" + Environment.NewLine +
             attachedNitro + Environment.NewLine + currentNitro, "Information", MessageBoxButton.OK);
-
-
-
-
         }
 
         private void SortListView(string by)
