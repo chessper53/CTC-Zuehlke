@@ -17,8 +17,6 @@ namespace CTC
         public DbSet<Rim> Rim { get; set; }
         public DbSet<Tyre> Tyre { get; set; }
 
-        public string DbPath { get; set; }
-
         public string ConnectionString { get; set; } = "Data Source=192.168.55.44\\MSSQLSERVER01;Initial Catalog=ctc;User id=caspar;Password=caspar20052.0;Trusted_Connection=False;Encrypt=False";
 
         public DBContext()
