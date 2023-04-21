@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-04-21T08:49:34.019Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 Edg/112.0.1722.48" etag="knTtVSu9VKoeu-9s_8Zz" version="21.1.9" type="device">
+<mxfile host="app.diagrams.net" modified="2023-04-21T09:05:41.383Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 Edg/112.0.1722.48" etag="0k_-V1cC55v8QxI4By0J" version="21.1.8" type="device">
   <diagram name="Page-1" id="GD1UZxkFtH6TTWjCuxMG">
-    <mxGraphModel dx="1498" dy="650" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1347" dy="338" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -26,7 +26,7 @@
         <mxCell id="5kU60z63pou338XEL4XP-7" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Car&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;carId (PK)&lt;br&gt;image&lt;br&gt;model&lt;br&gt;colourOutside&lt;br&gt;trimColour&lt;br&gt;powerInHp&lt;br&gt;acceleration&lt;br&gt;topSpeedInKmh&lt;br&gt;handlingRange&lt;br&gt;breakingForce&lt;br&gt;weight&lt;br&gt;rating&lt;br&gt;value&lt;br&gt;image&lt;br&gt;electric" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry x="140" y="320" width="140" height="250" as="geometry" />
         </mxCell>
-        <mxCell id="5kU60z63pou338XEL4XP-9" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Engine&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;engineId (PK)&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;model&lt;br&gt;weight&lt;br&gt;type&lt;br&gt;cylinderCount&lt;br&gt;impactAcceleration&lt;br&gt;impactTopSpeed&lt;br&gt;impactPowerInHp&lt;br&gt;impactRating&lt;br&gt;price" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;" parent="1" vertex="1">
+        <mxCell id="5kU60z63pou338XEL4XP-9" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Engine&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;engineId (PK)&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;model&lt;br&gt;weight&lt;br&gt;type&lt;br&gt;cylinderCount&lt;br&gt;impactAcceleration&lt;br&gt;impactTopSpeed&lt;br&gt;impactPowerInHp&lt;br&gt;impactRating&lt;br&gt;price&lt;br&gt;electric" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry x="388" y="340" width="140" height="210" as="geometry" />
         </mxCell>
         <mxCell id="5kU60z63pou338XEL4XP-10" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;RearSpoiler&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;rearSpoilerId (PK)&lt;br&gt;weight&lt;br&gt;type&lt;br&gt;impactHandling&lt;br&gt;impactRating&lt;br&gt;price" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;" parent="1" vertex="1">
