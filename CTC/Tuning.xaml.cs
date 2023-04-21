@@ -38,7 +38,7 @@ namespace CTC
         internal Tuning(TuningController tuningController, Car car)
         {
             InitializeComponent();
-            clearStats();
+            ClearStats();
 
             // Set Icon
             string iconPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images/car_icon.ico");
@@ -76,7 +76,7 @@ namespace CTC
                 //buy the tuning part
                 tuningcontroller.UpdateCar(modifiedCar);
                 car = (Car)modifiedCar.Clone();
-                clearStats();
+                ClearStats();
 
                 // Changes the Header of tuningpartLV to its new content
                 var column = tuningpartLV.FindName("selectedPartHdr") as GridViewColumn;
@@ -163,11 +163,11 @@ namespace CTC
                 weightLbl.Content = modifiedCar.GetCalcWeight();
                 ratingLbl.Content = modifiedCar.GetCalcRating();
 
-                labelColouring();
+                LabelColouring();
             }
             else
             {
-                clearStats();
+                ClearStats();
                 modifiedCar = (Car)car.Clone();
             }
         }
@@ -341,7 +341,7 @@ namespace CTC
             }
         }
 
-        private void labelColouring()
+        private void LabelColouring()
         {
             // Checks each Element in the sencond column and colours it based on it's Value
             foreach (UIElement element in specificationGridTune.Children)
@@ -381,7 +381,7 @@ namespace CTC
         {
             this.Close();
         }
-        public void clearStats()
+        public void ClearStats()
         {
             oldAcceleratonLbl.Content = null;
             oldTopSpeedLbl.Content = null;
