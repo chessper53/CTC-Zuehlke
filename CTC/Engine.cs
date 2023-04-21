@@ -19,5 +19,6 @@ namespace CTC
         public int ImpactTopSpeed { get; set; }
         public int ImpactPowerInHp { get; set; }
         public string Fuel { get; set; }
+        public bool Electric { get; set; }
     }
 }

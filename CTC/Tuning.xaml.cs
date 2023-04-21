@@ -60,6 +60,17 @@ namespace CTC
             {
                 MessageBox.Show("You can't remove the Exhaust from a non-electric car!");
             }
+            else if(modifiedCar.Engine.Electric != car.Electric)
+            {
+                if(car.Electric == true)
+                {
+                    MessageBox.Show("You can't use a non-electric Engine with an electric car!");
+                }
+                else
+                {
+                    MessageBox.Show("You can't use an electric Engine with a non-electric car!");
+                }
+            }
             else if(tuningpartLV.SelectedItem != null && tuningpartLV.SelectedItem != matchingItem)
             {
                 //buy the tuning part
@@ -409,7 +420,7 @@ namespace CTC
                 }
                 catch (Exception ex)
                 {
-
+                    
                 }
             
         }
