@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net" modified="2023-04-12T10:55:01.959Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 Edg/112.0.1722.34" etag="B5ETTdpXMN5ThyC3r3gp" version="21.1.6" type="device">
+  <diagram name="Page-1" id="e8k42piv5pD0qDBBoKQP">
+    <mxGraphModel dx="1295" dy="514" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="JqXJhw9AYzhsNnGtNbJO-10" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DBDBDB;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="135" y="160" width="625" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="JqXJhw9AYzhsNnGtNbJO-2" value="Programming language&lt;br&gt;(C#)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" parent="1" vertex="1">
+          <mxGeometry x="425" y="270" width="290" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="JqXJhw9AYzhsNnGtNbJO-1" value="DB&lt;br&gt;(MySQL)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="220" y="200" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="JqXJhw9AYzhsNnGtNbJO-3" value="WPF&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="425" y="270" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JqXJhw9AYzhsNnGtNbJO-4" value="" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0;entryDx=0;entryDy=52.5;entryPerimeter=0;exitX=0;exitY=0.25;exitDx=0;exitDy=0;" parent="1" source="JqXJhw9AYzhsNnGtNbJO-2" target="JqXJhw9AYzhsNnGtNbJO-1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="340" y="490" as="sourcePoint" />
+            <mxPoint x="326.615" y="255.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JqXJhw9AYzhsNnGtNbJO-5" value=".NET Framework V6.0" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="605" y="270" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JqXJhw9AYzhsNnGtNbJO-6" value="&lt;br&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="220" y="335" width="20" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JqXJhw9AYzhsNnGtNbJO-8" value="Desktop Application" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="605" y="370" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JqXJhw9AYzhsNnGtNbJO-11" value="Car Tuning Master" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" parent="1" vertex="1">
+          <mxGeometry x="475" y="80" width="190" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JqXJhw9AYzhsNnGtNbJO-12" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="JqXJhw9AYzhsNnGtNbJO-1" target="JqXJhw9AYzhsNnGtNbJO-11" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="323.43499999999995" y="187.85000000000002" as="sourcePoint" />
+            <mxPoint x="840" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zRWJJZgWTEsDzztfixCF-1" value="Local" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="225" y="275" width="50" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
