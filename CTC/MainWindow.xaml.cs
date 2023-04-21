@@ -104,15 +104,15 @@ namespace CTC
 
         private void infoboxBtn_Click(object sender, RoutedEventArgs e)
         {
-
-            string currentCar;
+            string currentNitro = "";
+            string currentEngine = "";
             if (vehicleselectLV.SelectedItem != null)
             {
                 Car car = vehicleselectLV.SelectedItem as Car;
                 if(car.NitroId != null)
                 {
                     //Car is Selected and has Nitro
-                    currentCar =
+                    currentNitro =
                     "Currently Selected Nitro: " + car.Nitro.Type + Environment.NewLine +
                     "Acceleration Increase: +" + car.Nitro.
 
@@ -123,24 +123,28 @@ namespace CTC
                 else
                 {
                     //No Nitro is set
-                    currentCar = "Car has no Nitro attached!";
+                    currentNitro = "Car has no Nitro attached!";
                 }
+
+                //Engine fuel
+                currentEngine = Environment.NewLine + Environment.NewLine + "Attached Engine: Is powered by " + car.Engine.Fuel;
             }
             else
             {
                 //No Nitro is Selected
-                currentCar = "No Car is Selected!";
+                currentNitro = "No Car is Selected!";
             }
 
-            MessageBox.Show("Acceleration: Time needed to go from 0-100 km/h" + Environment.NewLine +
+            MessageBox.Show("Acceleration: Constant acceleration in m/s²" + Environment.NewLine +
             "Topspeed: Km/h" + Environment.NewLine +
             "Brakeforce: Brakeforce in Newton" + Environment.NewLine +
             "Handling Range: The Handling rated on a scale of 0-50" + Environment.NewLine +
             "Horsepower: PS" + Environment.NewLine +
             "Weight: Kg" + Environment.NewLine +
-            "Value: In DKK" + Environment.NewLine + Environment.NewLine +
-            "Nitro is an ingame Consumable!" + Environment.NewLine +
-            Environment.NewLine + currentCar, "Information", MessageBoxButton.OK);
+            "Value: In DKK"  +
+            currentEngine + Environment.NewLine + Environment.NewLine +
+            "Nitro is an ingame Consumable!" +
+            Environment.NewLine + currentNitro, "Information", MessageBoxButton.OK);
         }
         private void ClearStats()
         {

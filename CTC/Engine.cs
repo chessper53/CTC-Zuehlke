@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Identity.Client;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -17,5 +18,6 @@ namespace CTC
         public int ImpactAcceleration { get; set; }
         public int ImpactTopSpeed { get; set; }
         public int ImpactPowerInHp { get; set; }
+        public string Fuel { get; set; }
     }
 }
