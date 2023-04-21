@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace CTC
 {
-    internal class Config : DbContext
+    internal class DBContext : DbContext
     {
         public DbSet<Car> Car { get; set; }
         public DbSet<Brand> Brand { get; set; }
@@ -21,7 +21,7 @@ namespace CTC
 
         public string ConnectionString { get; set; } = "Data Source=192.168.55.44\\MSSQLSERVER01;Initial Catalog=ctc;User id=caspar;Password=caspar20052.0;Trusted_Connection=False;Encrypt=False";
 
-        public Config()
+        public DBContext()
         {
         }
 
