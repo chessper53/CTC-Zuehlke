@@ -12,7 +12,7 @@ namespace CTC
 {
     internal class CTCModel
     {
-        public Config Db { get; set; }
+        public DBContext Db { get; set; }
         public List<Bumper > Bumpers { get; set; }
         public List<Exhaust> Exhausts { get; set; }
         public List<Nitro> Nitros { get; set; }
@@ -26,7 +26,7 @@ namespace CTC
 
         public CTCModel()
         {
-            Db = new Config();
+            Db = new DBContext();
             Bumpers = Db.Bumper.ToList();
             Exhausts = Db.Exhaust.ToList();
             Nitros = Db.Nitro.ToList();

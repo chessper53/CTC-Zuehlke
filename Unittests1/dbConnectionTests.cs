@@ -6,10 +6,10 @@ namespace Unittests1
     public class dbConnectionTests
     {
         [TestMethod]
-        public void Connection_SuccessfulConnectionToDatabase_Config()
+        public void Connection_SuccessfulConnectionToDatabase_DBContext()
         {
             //Arrange, Act and Assert
-            Config config = new Config();
+            DBContext config = new DBContext();
         }
         [TestMethod]
         public void UpdatedCar_SaveCarWithNewEngineInDB_UpdateCar()
