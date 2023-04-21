@@ -491,7 +491,7 @@ namespace CTC
             //Manage engine information
             if(tuningpartLV.SelectedItem != null && tuningpartLV.SelectedItem.GetType().Name.Equals("Engine"))
             {
-                attachedEngine = "Selected Engine: Is powered by " + car.Engine.Fuel;
+                attachedEngine = "Selected Engine: Is powered by " + modifiedCar.Engine.Fuel + " and has " + modifiedCar.Engine.CylinderCount + " cylinders";
             }
             else
             {
@@ -501,11 +501,11 @@ namespace CTC
             MessageBox.Show("Acceleration: Constant acceleration in m/s² " + Environment.NewLine +
             "Topspeed: Km/h" + Environment.NewLine +
             "Brakeforce: Brakeforce in Newton" + Environment.NewLine +
-            "Handling Range: The Handling rated on a scale of 0-50" + Environment.NewLine +
+            "Handling Range: The higher the handling range, the better the car can be steered" + Environment.NewLine +
             "Horsepower: PS" + Environment.NewLine +
             "Weight: Kg" + Environment.NewLine +
             "Value: In DKK" + Environment.NewLine + Environment.NewLine +
-            "Attached Engine: Is powered by " + car.Engine.Fuel + Environment.NewLine +
+            "Attached Engine: Is powered by " + car.Engine.Fuel + " and has " + car.Engine.CylinderCount + " cylinders" + Environment.NewLine +
             attachedEngine + Environment.NewLine + Environment.NewLine +
             "Nitro is an ingame Consumable!" + Environment.NewLine +
             attachedNitro + Environment.NewLine + currentNitro, "Information", MessageBoxButton.OK);

@@ -127,7 +127,7 @@ namespace CTC
                 }
 
                 //Engine fuel
-                currentEngine = Environment.NewLine + Environment.NewLine + "Attached Engine: Is powered by " + car.Engine.Fuel;
+                currentEngine = Environment.NewLine + Environment.NewLine + "Attached Engine: Is powered by " + car.Engine.Fuel + " and has " + car.Engine.CylinderCount + " cylinders";
             }
             else
             {
@@ -138,7 +138,7 @@ namespace CTC
             MessageBox.Show("Acceleration: Constant acceleration in m/s²" + Environment.NewLine +
             "Topspeed: Km/h" + Environment.NewLine +
             "Brakeforce: Brakeforce in Newton" + Environment.NewLine +
-            "Handling Range: The Handling rated on a scale of 0-50" + Environment.NewLine +
+            "Handling Range: The higher the handling range, the better the car can be steered " + Environment.NewLine +
             "Horsepower: PS" + Environment.NewLine +
             "Weight: Kg" + Environment.NewLine +
             "Value: In DKK"  +
