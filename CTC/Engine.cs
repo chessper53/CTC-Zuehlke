@@ -11,7 +11,7 @@ namespace CTC
     {
         public int EngineId { get; set; }
         public int BrandId { get; set; }
-        public Brand Brand { get; set; }
+        public Brand Brand { get; set; }   
         public int Weight { get; set; }
         public int CylinderCount { get; set; }
         public int ImpactAcceleration { get; set; }
