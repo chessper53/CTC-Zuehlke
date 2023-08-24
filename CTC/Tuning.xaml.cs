@@ -1,4 +1,5 @@
-﻿using Mysqlx;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Mysqlx;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -49,6 +50,7 @@ namespace CTC
 
             exteriorBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(car.ColourOutside));
             interiorBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(car.TrimColour));
+            tuningpartLV.ItemContainerGenerator.StatusChanged += new EventHandler(ItemContainerGenerator_StatusChanged);
         }
 
         private void purchaseBtn_Click(object sender, RoutedEventArgs e)
@@ -181,15 +183,6 @@ namespace CTC
             tuningpartLV.ItemsSource = tuningcontroller.ReadEngine();
 
             matchingItem = tuningpartLV.Items.Cast<Engine>().FirstOrDefault(x => x.EngineId == car.EngineId);
-
-            // Wait for the container elements to be generated
-            await Task.Delay(1);
-
-            // Get the container element for the matching item and set its foreground color
-            if (matchingItem != null && tuningpartLV.ItemContainerGenerator.ContainerFromItem(matchingItem) is ListViewItem listViewItem)
-            {
-                listViewItem.Foreground = Brushes.LightGreen;
-            }
         }
 
         private async void bumperBtn_Click(object sender, RoutedEventArgs e)
@@ -202,16 +195,13 @@ namespace CTC
             tuningpartLV.ItemsSource = tuningcontroller.ReadBumpers();
 
             matchingItem = tuningpartLV.Items.Cast<Bumper>().FirstOrDefault(x => x.BumperId == car.BumperId);
-
-            // Wait for the container elements to be generated
-            await Task.Delay(1);
-
-            // Get the container element for the matching item and set its foreground color
-            if (matchingItem != null && tuningpartLV.ItemContainerGenerator.ContainerFromItem(matchingItem) is ListViewItem listViewItem)
-            {
-                listViewItem.Foreground = Brushes.LightGreen;
-            }
         }
+
+
+
+
+
+
 
         private async void tyreBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -223,15 +213,6 @@ namespace CTC
             tuningpartLV.ItemsSource = tuningcontroller.ReadTyre();
 
             matchingItem = tuningpartLV.Items.Cast<Tyre>().FirstOrDefault(x => x.TyreId == car.TyreId);
-
-            // Wait for the container elements to be generated
-            await Task.Delay(1);
-
-            // Get the container element for the matching item and set its foreground color
-            if (matchingItem != null && tuningpartLV.ItemContainerGenerator.ContainerFromItem(matchingItem) is ListViewItem listViewItem)
-            {
-                listViewItem.Foreground = Brushes.LightGreen;
-            }
         }
 
         private async void brakesBtn_Click(object sender, RoutedEventArgs e)
@@ -244,15 +225,6 @@ namespace CTC
             tuningpartLV.ItemsSource = tuningcontroller.ReadBreak();
 
             matchingItem = tuningpartLV.Items.Cast<Break>().FirstOrDefault(x => x.BreakId == car.BreakId);
-
-            // Wait for the container elements to be generated
-            await Task.Delay(1);
-
-            // Get the container element for the matching item and set its foreground color
-            if (matchingItem != null && tuningpartLV.ItemContainerGenerator.ContainerFromItem(matchingItem) is ListViewItem listViewItem)
-            {
-                listViewItem.Foreground = Brushes.LightGreen;
-            }
         }
 
         private async void rimBtn_Click(object sender, RoutedEventArgs e)
@@ -265,15 +237,6 @@ namespace CTC
             tuningpartLV.ItemsSource = tuningcontroller.ReadRim();
 
             matchingItem = tuningpartLV.Items.Cast<Rim>().FirstOrDefault(x => x.RimId == car.RimId);
-
-            // Wait for the container elements to be generated
-            await Task.Delay(1);
-
-            // Get the container element for the matching item and set its foreground color
-            if (matchingItem != null && tuningpartLV.ItemContainerGenerator.ContainerFromItem(matchingItem) is ListViewItem listViewItem)
-            {
-                listViewItem.Foreground = Brushes.LightGreen;
-            }
         }
 
         private async void exhaustBtn_Click(object sender, RoutedEventArgs e)
@@ -286,15 +249,6 @@ namespace CTC
             tuningpartLV.ItemsSource = tuningcontroller.ReadExhaust();
 
             matchingItem = tuningpartLV.Items.Cast<Exhaust>().FirstOrDefault(x => x.ExhaustId == car.ExhaustId);
-
-            // Wait for the container elements to be generated
-            await Task.Delay(1);
-
-            // Get the container element for the matching item and set its foreground color
-            if (matchingItem != null && tuningpartLV.ItemContainerGenerator.ContainerFromItem(matchingItem) is ListViewItem listViewItem)
-            {
-                listViewItem.Foreground = Brushes.LightGreen;
-            }
         }
 
         private async void nitroBtn_Click(object sender, RoutedEventArgs e)
@@ -307,15 +261,6 @@ namespace CTC
             tuningpartLV.ItemsSource = tuningcontroller.ReadNitro();
 
             matchingItem = tuningpartLV.Items.Cast<Nitro>().FirstOrDefault(x => x.NitroId == car.NitroId);
-
-            // Wait for the container elements to be generated
-            await Task.Delay(1);
-
-            // Get the container element for the matching item and set its foreground color
-            if (matchingItem != null && tuningpartLV.ItemContainerGenerator.ContainerFromItem(matchingItem) is ListViewItem listViewItem)
-            {
-                listViewItem.Foreground = Brushes.LightGreen;
-            }
         }
 
         private async void spoilerBtn_Click(object sender, RoutedEventArgs e)
@@ -328,14 +273,16 @@ namespace CTC
             tuningpartLV.ItemsSource = tuningcontroller.ReadRearSpoiler();
 
             matchingItem = tuningpartLV.Items.Cast<RearSpoiler>().FirstOrDefault(x => x.RearSpoilerId == car.RearSpoilerId);
+        }
 
-            // Wait for the container elements to be generated
-            await Task.Delay(1);
-
-            // Get the container element for the matching item and set its foreground color
-            if (matchingItem != null && tuningpartLV.ItemContainerGenerator.ContainerFromItem(matchingItem) is ListViewItem listViewItem)
+        void ItemContainerGenerator_StatusChanged(object sender, EventArgs e)
+        {
+            if (tuningpartLV.ItemContainerGenerator.Status == GeneratorStatus.ContainersGenerated)
             {
-                listViewItem.Foreground = Brushes.LightGreen;
+                if (matchingItem != null && tuningpartLV.ItemContainerGenerator.ContainerFromItem(matchingItem) is ListViewItem listViewItem)
+                {
+                    listViewItem.Foreground = Brushes.LightGreen;
+                }
             }
         }
 
@@ -522,9 +469,6 @@ namespace CTC
                     view.SortDescriptions.Clear();
                     view.SortDescriptions.Add(new System.ComponentModel.SortDescription(by, System.ComponentModel.ListSortDirection.Ascending));
                     tuningpartLV.UpdateLayout();
-
-                    ListViewItem listViewItem = (ListViewItem)tuningpartLV.ItemContainerGenerator.ContainerFromItem(matchingItem);
-                    listViewItem.Foreground = Brushes.LightGreen;
                 }
             }
             catch(Exception ex)
