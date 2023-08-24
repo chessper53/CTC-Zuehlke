@@ -1,2 +1,1 @@
 # CTC-Zuehlke
-Nöd schlecht
