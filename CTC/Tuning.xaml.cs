@@ -25,9 +25,6 @@ using static Mysqlx.Datatypes.Scalar.Types;
 
 namespace CTC
 {
-    /// <summary>
-    /// Interaction logic for Tuning.xaml
-    /// </summary>
     public partial class Tuning : Window
     {
         private TuningController tuningcontroller;
@@ -73,7 +70,7 @@ namespace CTC
             }
             else if(tuningpartLV.SelectedItem != null && tuningpartLV.SelectedItem != matchingItem)
             {
-                //buy the tuning part
+                // Buy the tuning part
                 tuningcontroller.UpdateCar(modifiedCar);
                 car = (Car)modifiedCar.Clone();
                 ClearStats();
@@ -82,7 +79,7 @@ namespace CTC
                 var column = tuningpartLV.FindName("selectedPartHdr") as GridViewColumn;
                 column.Header = "Tuning Parts";
 
-                //Shows the Purchase Confirmation
+                // Shows the Purchase Confirmation
                 TuningPart part = (TuningPart)tuningpartLV.SelectedItem;
                 double moneySpent = part.Price;
                 MessageBox.Show($"Purchase Successful - {moneySpent} DKK spent");
@@ -97,6 +94,7 @@ namespace CTC
 
         private void tuningpartLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            // Loads the stats for the corresponding tuning part.
             if (tuningpartLV.SelectedItem != null)
             {
                 modifiedCar = (Car)car.Clone();
@@ -179,7 +177,7 @@ namespace CTC
             var column = tuningpartLV.FindName("selectedPartHdr") as GridViewColumn;
             column.Header = "Engines";
 
-            //Sets the Content of the ListView
+            // Sets the Content of the ListView
             tuningpartLV.ItemsSource = tuningcontroller.ReadEngine();
 
             matchingItem = tuningpartLV.Items.Cast<Engine>().FirstOrDefault(x => x.EngineId == car.EngineId);
@@ -200,7 +198,7 @@ namespace CTC
             var column = tuningpartLV.FindName("selectedPartHdr") as GridViewColumn;
             column.Header = "Bumpers";
 
-            //Sets the Content of the ListView
+            // Sets the Content of the ListView
             tuningpartLV.ItemsSource = tuningcontroller.ReadBumpers();
 
             matchingItem = tuningpartLV.Items.Cast<Bumper>().FirstOrDefault(x => x.BumperId == car.BumperId);
@@ -221,7 +219,7 @@ namespace CTC
             var column = tuningpartLV.FindName("selectedPartHdr") as GridViewColumn;
             column.Header = "Tyres";
 
-            //Sets the Content of the ListView
+            // Sets the Content of the ListView
             tuningpartLV.ItemsSource = tuningcontroller.ReadTyre();
 
             matchingItem = tuningpartLV.Items.Cast<Tyre>().FirstOrDefault(x => x.TyreId == car.TyreId);
@@ -305,7 +303,7 @@ namespace CTC
             var column = tuningpartLV.FindName("selectedPartHdr") as GridViewColumn;
             column.Header = "Nitro";
 
-            //Sets the Content of the ListView
+            // Sets the Content of the ListView
             tuningpartLV.ItemsSource = tuningcontroller.ReadNitro();
 
             matchingItem = tuningpartLV.Items.Cast<Nitro>().FirstOrDefault(x => x.NitroId == car.NitroId);
@@ -326,7 +324,7 @@ namespace CTC
             var column = tuningpartLV.FindName("selectedPartHdr") as GridViewColumn;
             column.Header = "Spoilers";
 
-            //Sets the Content of the ListView
+            // Sets the Content of the ListView
             tuningpartLV.ItemsSource = tuningcontroller.ReadRearSpoiler();
 
             matchingItem = tuningpartLV.Items.Cast<RearSpoiler>().FirstOrDefault(x => x.RearSpoilerId == car.RearSpoilerId);
@@ -383,6 +381,7 @@ namespace CTC
         }
         public void ClearStats()
         {
+            //Clears all stats
             oldAcceleratonLbl.Content = null;
             oldTopSpeedLbl.Content = null;
             oldBrakeForceLbl.Content = null;
@@ -410,23 +409,24 @@ namespace CTC
 
         private void interiorBtn_Click(object sender, RoutedEventArgs e)
         {
+            //Opens a popup that asks for either a color code or a simple name.
             string colourHexInterior = "";
             colourHexInterior = Microsoft.VisualBasic.Interaction.InputBox("Please enter the desired colour (HEX):", "Colour", "");
-
-                try
-                {
-                    interiorBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(colourHexInterior));
-                    car.TrimColour = colourHexInterior;
-                }
-                catch (Exception ex)
-                {
+            try
+            {
+                interiorBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(colourHexInterior));
+                car.TrimColour = colourHexInterior;
+            }
+            catch (Exception ex)
+            {
                     
-                }
+            }
             
         }
 
         private void exteriorBtn_Click(object sender, RoutedEventArgs e)
         {
+            //Opens a popup that asks for either a color code or a simple name.
             string colourHexExterior = "";
             colourHexExterior = Microsoft.VisualBasic.Interaction.InputBox("Please enter the desired colour (HEX):", "Colour", "");
                 try
@@ -513,6 +513,7 @@ namespace CTC
 
         private void SortListView(string by)
         {
+            // Sorts the ListView depending on the contents of the variable "by".
             try
             {
                 CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(tuningpartLV.ItemsSource);
@@ -534,8 +535,8 @@ namespace CTC
 
         void Header_Click(object sender, RoutedEventArgs e)
         {
+            // Checks for a Header click
             var headerClicked = e.OriginalSource as GridViewColumnHeader;
-
             if (headerClicked != null)
             {
                 if(headerClicked.Content.Equals("Price"))

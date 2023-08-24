@@ -6,6 +6,7 @@ namespace CTC
 {
     internal class DBContext : DbContext
     {
+        // Establishes the connection to our database.
         public DbSet<Car> Car { get; set; }
         public DbSet<Brand> Brand { get; set; }
         public DbSet<Break> Break { get; set; }

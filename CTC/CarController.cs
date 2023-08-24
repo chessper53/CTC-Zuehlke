@@ -11,11 +11,12 @@ namespace CTC
     {
         public List<Car> ReadCars()
         {
-            //Placeholder
+            // Returns all cars.
             return Model.Cars;
         }
         public void ReloadCars()
         {
+            // Returns all cars in order to refresh them.
             Model = new CTCModel();
         }
     }

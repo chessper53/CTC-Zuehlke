@@ -17,9 +17,6 @@ using System.Windows.Shapes;
 
 namespace CTC
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         CarController carController;
@@ -27,6 +24,7 @@ namespace CTC
 
         public MainWindow()
         {
+
             InitializeComponent();
             PlaceImage("/Images/placeholder_image.jpg");
             ColorLabels();
@@ -34,12 +32,12 @@ namespace CTC
             carController = new CarController();
             tuningController = new TuningController();
 
-            // Set Icon
+            // Set the car Icon
             string iconPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images/car_icon.ico");
             Uri iconUri = new Uri(iconPath);
             this.Icon = BitmapFrame.Create(iconUri);
 
-            //set cars as source for view
+            // Set cars as source for view
             vehicleselectLV.ItemsSource = carController.ReadCars();
         }
 
@@ -50,9 +48,11 @@ namespace CTC
 
         private void tuneVehiclebtn_Click(object sender, RoutedEventArgs e)
         {
+            // Checks if a Vehicle is selected.
             Car car = vehicleselectLV.SelectedItem as Car;
             if(car != null)
             {
+                // Opens the TuningWindow with the stats belonging to the selected vehicle.
                 Tuning tuningWindow = new Tuning(tuningController, car);
                 tuningWindow.ShowDialog();
                 carController.ReloadCars();
@@ -62,6 +62,7 @@ namespace CTC
             }
             else
             {
+                // Informs the user that no car is selected.
                 MessageBox.Show("No car selected");
             }
         }
@@ -73,7 +74,8 @@ namespace CTC
 
         private void vehicleselectLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(vehicleselectLV.SelectedItem != null)
+            // Displays the appropriate stats for whichever car is selected.
+            if (vehicleselectLV.SelectedItem != null)
             {
                 Car car = vehicleselectLV.SelectedItem as Car;
 
@@ -97,8 +99,8 @@ namespace CTC
         }
         private void ColorLabels()
         {
+            // Changes the color labels to the the appropriate color for whichever car is selected.
             extcolorLbl.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString(extcolorLbl.Content.ToString()));
-
             intcolorLbl.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString(intcolorLbl.Content.ToString()));
         }
 
@@ -111,7 +113,7 @@ namespace CTC
                 Car car = vehicleselectLV.SelectedItem as Car;
                 if(car.NitroId != null)
                 {
-                    //Car is Selected and has Nitro
+                    // Car is Selected and has Nitro
                     currentNitro =
                     "Currently Selected Nitro: " + car.Nitro.Type + Environment.NewLine +
                     "Acceleration Increase: +" + car.Nitro.
@@ -122,16 +124,16 @@ namespace CTC
                 }
                 else
                 {
-                    //No Nitro is set
+                    // No Nitro is set
                     currentNitro = "Car has no Nitro attached!";
                 }
 
-                //Engine fuel
+                // Displays the correct engine fuel corresponding to the selected car.
                 currentEngine = Environment.NewLine + Environment.NewLine + "Attached Engine: Is powered by " + car.Engine.Fuel + " and has " + car.Engine.CylinderCount + " cylinders";
             }
             else
             {
-                //No Nitro is Selected
+                // No Car is Selected
                 currentNitro = "No Car is Selected!";
             }
 
@@ -148,6 +150,7 @@ namespace CTC
         }
         private void ClearStats()
         {
+            //Clears all Stats
             PlaceImage("/Images/placeholder_image.jpg");
             accelerationLbl.Content = "0";
             topspeedLbl.Content = "0";

@@ -127,7 +127,7 @@
             <Rectangle Width="482" Fill="#FF2B2B2B" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
             <Rectangle HorizontalAlignment="Left" Height="299" Margin="221,0,0,0" VerticalAlignment="Center" Width="615" Grid.ColumnSpan="2" Grid.Column="1">
                 <Rectangle.Fill>
-                    <ImageBrush ImageSource="/car_blueprint.png"/>
+                    <ImageBrush ImageSource="/Images/car_blueprint.png"/>
                 </Rectangle.Fill>
             </Rectangle>
             <Rectangle HorizontalAlignment="Left" Height="51" Margin="10,10,0,0" VerticalAlignment="Top" Width="460" Fill="#FF2B2B2B" Grid.ColumnSpan="2"/>

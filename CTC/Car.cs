@@ -46,6 +46,7 @@ namespace CTC
 
         public int GetCalcPowerInH()
         {
+            // Calculates the power attribute in horsepower.
             int calcPowerInHp = PowerInHp;
 
             calcPowerInHp += Engine.ImpactPowerInHp;
@@ -58,6 +59,7 @@ namespace CTC
         }
         public int GetCalcAcceleration()
         {
+            // Calculates the acceleration attribute.
             int calcAcceleraton = Acceleration;
 
             if(Exhaust != null)
@@ -70,6 +72,7 @@ namespace CTC
         }
         public int GetCalcTopSpeedInKmh()
         {
+            // Calculates the TopSpeed attribute in Kilometers per hour.
             int calcTopSpeedInKmh = TopSpeedInKmh;
 
             calcTopSpeedInKmh += Engine.ImpactTopSpeed;
@@ -78,6 +81,7 @@ namespace CTC
         }
         public int GetCalcHandlingRange()
         {
+            // Calculates the HandlingRange attribute.
             int calcHandlingRange = HandlingRange;
 
             if (RearSpoiler != null)
@@ -90,6 +94,7 @@ namespace CTC
         }
         public int GetCalcBreakingForce()
         {
+            // Calculates the BreakingForce attribute.
             int calcBreakingForce = BreakingForce;
 
             calcBreakingForce += Tyre.ImpactBreakingForce;
@@ -99,6 +104,7 @@ namespace CTC
         }
         public int GetCalcWeight()
         {
+            // Calculates the Weight attribute.
             int calcWeight = Weight;
 
             if (Bumper != null)
@@ -118,6 +124,7 @@ namespace CTC
         }
         public int GetCalcRating()
         {
+            // Calculates the Rating attribute.
             int calcRating = Rating;
 
             if(Exhaust != null)
@@ -145,6 +152,7 @@ namespace CTC
         }
         public double GetCalcValue()
         {
+            // Calculates the Value attribute.
             double calcValue = Value;
 
             if (Exhaust != null)
