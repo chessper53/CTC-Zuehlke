@@ -53,7 +53,7 @@
         <Grid Background="#FF0C1E9A" Height="470" Width="1147">
             <Rectangle Width="426" Margin="398,33,270,26">
                 <Rectangle.Fill>
-                    <ImageBrush ImageSource="/tyrestack.png" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="/Images/tyrestack.png" Stretch="Uniform"/>
                 </Rectangle.Fill>
             </Rectangle>
 

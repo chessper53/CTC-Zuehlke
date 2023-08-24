@@ -26,6 +26,7 @@ namespace CTC
 
         public CTCModel()
         {
+            // Retrieves all the Tuning parts from our DB
             Db = new DBContext();
             Bumpers = Db.Bumper.ToList();
             Exhausts = Db.Exhaust.ToList();
@@ -38,7 +39,7 @@ namespace CTC
             Brands = Db.Brand.ToList();
             Cars = Db.Car.Include("Brand").Include("Bumper").Include("Exhaust").Include("Nitro").Include("Tyre").Include("RearSpoiler").Include("Rim").Include("Engine").Include("Break").ToList();
 
-            //Tuning parts that can be null
+            // Tuning parts that can be null
             Bumper emptyBumper = new Bumper(null,0,"No bumper",0,0);
             Bumpers.Add(emptyBumper);
             RearSpoiler emptyRearSpoiler = new RearSpoiler(null,0,0,"No Rear Spoiler",0,0);
