@@ -1,4 +1,5 @@
-﻿using Mysqlx;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Mysqlx;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -212,6 +213,21 @@ namespace CTC
             if (matchingItem != null && tuningpartLV.ItemContainerGenerator.ContainerFromItem(matchingItem) is ListViewItem listViewItem)
             {
                 listViewItem.Foreground = Brushes.LightGreen;
+            }
+
+
+            tuningpartLV.ItemContainerGenerator.StatusChanged += new EventHandler(ItemContainerGenerator_StatusChanged);
+
+            void ItemContainerGenerator_StatusChanged(object sender, EventArgs e)
+            {
+                if (tuningpartLV.ItemContainerGenerator.Status == GeneratorStatus.ContainersGenerated)
+                {
+                    // Do something here...  
+                    if (matchingItem != null && tuningpartLV.ItemContainerGenerator.ContainerFromItem(matchingItem) is ListViewItem listViewItem)
+                    {
+                        listViewItem.Foreground = Brushes.LightGreen;
+                    }
+                }
             }
         }
 
@@ -523,6 +539,12 @@ namespace CTC
                     tuningpartLV.UpdateLayout();
 
                     ListViewItem listViewItem = (ListViewItem)tuningpartLV.ItemContainerGenerator.ContainerFromItem(matchingItem);
+                    if (listViewItem == null)
+                    {
+                        // Not that elegant, but it works quite well
+                        // The program doesn't crash anymore
+                        listViewItem = (ListViewItem)tuningpartLV.Items.CurrentItem;
+                    }
                     listViewItem.Foreground = Brushes.LightGreen;
                 }
             }
